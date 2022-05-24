@@ -1,4 +1,6 @@
 import React from 'react';
 export default function AboutMe() {
-  return <div>About me</div>;
+  return (
+    <img src="..." class="img-fluid" alt="...">
+  );
 }

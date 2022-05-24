@@ -1,7 +1,11 @@
 import React from 'react';
+import ProfilePicture from './ProfilePicture';
 export default function AboutMe() {
   return (
     <section className="resume">
+      <aside>
+        <ProfilePicture />
+      </aside>
       <header className="header">
         <div>Raja Sekhar Pothina</div>
         <div>
