@@ -1,12 +1,13 @@
 import React from 'react';
 import ProfilePicture from './ProfilePicture';
+import './index.css';
 export default function AboutMe() {
   return (
-    <section className="resume">
-      <aside>
+    <section className="resume d-flex container">
+      <aside className="side-container">
         <ProfilePicture />
       </aside>
-      <header className="header">
+      <main className="content">
         <div>Raja Sekhar Pothina</div>
         <div>
           <div className="address">
@@ -21,7 +22,7 @@ export default function AboutMe() {
             </li>
           </ul>
         </div>
-      </header>
+      </main>
     </section>
   );
 }
