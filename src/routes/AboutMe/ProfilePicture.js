@@ -1,6 +1,4 @@
 import React from 'react';
 export default function AboutMe() {
-  return (
-    <img src="..." class="img-fluid" alt="...">
-  );
+  return <img src="photo.png" class="img-fluid" alt="Profile Picture" />;
 }
