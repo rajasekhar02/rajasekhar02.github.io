@@ -3,7 +3,7 @@ export default function ProfilePicture() {
   return (
     <div className="image-mask">
       <img
-        src="https://stackblitz.com/files/quest-to-learn/github/rajasekhar02/my-resume-rajasekhar02/master/public/21-1-2018-PP.png"
+        src="https://stackblitz.com/files/quest-to-learn/github/rajasekhar02/my-resume-rajasekhar02/master/public/profile-picture.png"
         class="img-fluid rounded"
         alt="Profile Picture"
         width="150"

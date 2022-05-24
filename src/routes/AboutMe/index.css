@@ -1,4 +1,7 @@
 .side-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 30%;
   background-color: #77a7cd;
 }
