@@ -4,7 +4,7 @@ import { Outlet } from 'react-router-dom';
 import NavBar from './components/NavBar';
 export default function App() {
   return (
-    <div>
+    <div className="my-resume">
       <NavBar />
       <Outlet />
     </div>

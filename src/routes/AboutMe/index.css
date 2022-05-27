@@ -4,7 +4,6 @@
   align-items: center;
   min-width: 300px;
   width: 200px;
-  border-right: 1px solid #ccc6be;
   background-color: #f3f3f3;
   /* flex-grow: 1; */
 }

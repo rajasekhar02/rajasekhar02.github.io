@@ -8,7 +8,7 @@ const navigationItems = [
 ];
 export default function NavBar() {
   return (
-    <nav className="navbar navbar-expand-lg bg-light">
+    <nav className="navbar navbar-expand-lg bg-light border-bottom">
       <div className="container-fluid">
         <a className="navbar-brand" href="#">
           Quest to Learning
