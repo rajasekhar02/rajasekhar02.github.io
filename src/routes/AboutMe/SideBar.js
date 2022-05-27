@@ -2,9 +2,9 @@ import React from 'react';
 import ProfilePicture from './ProfilePicture';
 export default function SideBar() {
   return (
-    <aside className="side-container">
+    <aside className="side-container flex-grow-2 p-3">
       <ProfilePicture />
-      <div className="fs-2 fw-semibold">Raja Sekhar Pothina</div>
+      <div className="fs-3 fw-semibold">Raja Sekhar Pothina</div>
       <div className="role fst-italic">Student</div>
       <div className="work-motto mt-3">
         <figure className="text-center">
