@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 const navigationItems = [
   { title: 'About me', path: 'about-me' },
   { title: 'Projects', path: 'projects' },
-  { title: 'Learning Referneces', path: 'learning-references' },
+  { title: 'Learning References', path: 'learning-references' },
   { title: 'Download Resume', path: 'resume' },
 ];
 export default function NavBar() {
   return (
-    <nav className="navbar navbar-expand-lg bg-light border-bottom">
+    <nav className="navbar navbar-expand-lg bg-light border-bottom sticky-top">
       <div className="container-fluid">
         <a className="navbar-brand" href="#">
           Quest to Learning

@@ -8,6 +8,7 @@ p {
   --bs-body-color: var(--brand-color);
   --bs-list-group-color: var(--brand-color);
   --bs-border-color: #e3e0d6;
+  --bs-border-width: 2px;
   --bs-light-rgb: 243, 243, 243;
 }
 .my-resume-project .navbar {
