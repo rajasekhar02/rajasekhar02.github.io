@@ -3,8 +3,10 @@ import ProfilePicture from './ProfilePicture';
 export default function SideBar() {
   return (
     <aside className="side-container border-end flex-grow-3 p-3">
-      <ProfilePicture />
-      <div className="fs-3 fw-semibold">Raja Sekhar Pothina</div>
+      <div className="profile-picture">
+        <ProfilePicture />
+      </div>
+      <div className="name fs-3 fw-semibold">Raja Sekhar Pothina</div>
       <div className="role fst-italic">Student</div>
       <div className="work-motto mt-3">
         <figure className="text-center">
