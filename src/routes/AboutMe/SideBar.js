@@ -6,7 +6,7 @@ export default function SideBar() {
       <div className="profile-picture">
         <ProfilePicture />
       </div>
-      <div className="name fs-3 fw-semibold">Raja Sekhar Pothina</div>
+      <div className="name fs-4 fw-semibold">Raja Sekhar Pothina</div>
       <div className="role fst-italic">Student</div>
       <div className="work-motto mt-3">
         <figure className="text-center">
@@ -48,6 +48,14 @@ export default function SideBar() {
           <li className="list-group-item">
             <a className="contact-link" href="https://github.com/rajasekhar02">
               <i className="bi bi-github">&nbsp; rajasekhar02</i>
+            </a>
+          </li>
+          <li className="list-group-item">
+            <a
+              className="contact-link"
+              href="https://www.linkedin.com/in/pothinarajasekhar/"
+            >
+              <i class="bi bi-linkedin">&nbsp; pothinarajasekhar</i>
             </a>
           </li>
         </ul>

@@ -13,7 +13,7 @@ export default function AboutMe() {
           <p className="heading fw-bold fs-4 border-bottom">Education</p>
           <div class="list-group">
             <a
-              href="#"
+              href="study-in-mst"
               class="list-group-item list-group-item-action active"
               aria-current="true"
             >
