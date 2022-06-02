@@ -15,7 +15,9 @@ root.render(
       <Routes>
         <Route path="/" element={<App />}>
           <Route index element={<AboutMe />}></Route>
-          <Route path="about-me" element={<AboutMe />}></Route>
+          <Route path="about-me" element={<AboutMe />}>
+            <Route path=":string_slug" element={<AboutMe />} />
+          </Route>
           <Route path="projects" element={<Projects />}></Route>
           <Route
             path="learning-references"
