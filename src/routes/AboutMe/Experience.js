@@ -17,7 +17,7 @@ export default function Experience() {
             <small>Jan-2019 to Jan-2022</small>
           </div>
           <p className="mb-1">Software Engineer</p>
-          <small>
+          <small className="text-muted">
             element-ui, Highcharts, Google Maps Api, date-fns,
             momentjs,excel.js, fuse.js, webpack, and vue.js ecosystem(vuex, vue
             router, vuei18n, virtual scroller, vue-grid-layout).
@@ -79,7 +79,9 @@ export default function Experience() {
             <small className="text-muted">Jul-2017 to Dec-2018</small>
           </div>
           <p className="mb-1">Assistant System Engineer</p>
-          {/* <small className="text-muted">And some muted small print.</small> */}
+          <small className="text-muted">
+            C#, VBScript,Itextsharp, Java, UFT(Unified Functionality Testing)
+          </small>
         </a>
       </div>
     </section>
