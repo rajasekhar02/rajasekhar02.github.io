@@ -83,6 +83,30 @@ export default function Experience() {
             C#, VBScript,Itextsharp, Java, UFT(Unified Functionality Testing)
           </small>
         </a>
+        <div
+          className={`collapse ${
+            string_slug === 'ast-in-tcs' && 'show'
+          }  collapse-ast-in-tcs`}
+        >
+          <div className="card card-body">
+            I joined this company in July 2017. During the Initial 3 months I
+            was in the ILP phase where I improved my programming skills in Java
+            and developed a Banking management application using the Java
+            Servlet Page and deployed using Tomcat server. Later I was assigned
+            to the Citi Bank project. In that I was assigned to small team to
+            start working on automating the BPA tasks using HP UFT, C# and
+            VBScript. Here I worked on extracting the data from PDF files using
+            Itextsharp, regular expressions and segregated the pdf based on the
+            keywords found in the pdf files. I also need to extract values from
+            the pdf Files and place them in the excel. I also implemented
+            styling, and formatting the excel files using VBScript and UFT. The
+            data extracted from the pdf files will be verified with other web
+            and desktop applications related to citibank which will be a tedious
+            task to do manually. During my free time I did Machine learning in
+            Coursera offered by Andrew Ng which is one that helped me to place
+            in my latter company.
+          </div>
+        </div>
       </div>
     </section>
   );
