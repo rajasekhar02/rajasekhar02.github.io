@@ -55,7 +55,7 @@ export default function SideBar() {
               className="contact-link"
               href="https://www.linkedin.com/in/pothinarajasekhar/"
             >
-              <i class="bi bi-linkedin">&nbsp; pothinarajasekhar</i>
+              <i className="bi bi-linkedin">&nbsp; pothinarajasekhar</i>
             </a>
           </li>
         </ul>

@@ -11,7 +11,7 @@ export default function NavBar() {
     <nav className="navbar navbar-expand-lg bg-light border-bottom sticky-top">
       <div className="container-fluid">
         <a className="navbar-brand" href="#">
-          Quest to Learning
+          Quest to Learn
         </a>
         <button
           className="navbar-toggler"
