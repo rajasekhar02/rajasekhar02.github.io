@@ -49,10 +49,10 @@ export default function Education() {
 
             <details>
               <summary>Java GUI and Visualization</summary>
-              In this course I have revised my Java programming skills and using
-              JavaFX for developing user Interfaces. In this course I have
+              In this course I have revised my Java programming skills and
+              learned JavaFX for developing desktop apps. In this course I have
               developed a desktop application related to spatial relations of
-              Circle.
+              circle.
             </details>
 
             <details>
@@ -65,14 +65,14 @@ export default function Education() {
             </details>
           </div>
         </div>
-        <a href="#" className="list-group-item list-group-item-action">
+        <div className="list-group-item list-group-item-action">
           <div className="d-flex w-100 justify-content-between">
             <h5 className="mb-1">V R Sidhartha Engineering College</h5>
             <small className="text-muted">2013-2017</small>
           </div>
           <p className="mb-1">Bachelors in Computer Science and Engineering</p>
           {/* <small className="text-muted">And some muted small print.</small> */}
-        </a>
+        </div>
       </div>
     </section>
   );
