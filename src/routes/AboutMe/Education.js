@@ -27,7 +27,6 @@ export default function Education() {
           className={`collapse ${
             string_slug === 'study-in-mst' && 'show'
           }  collapse-mst-study`}
-          id="collapseExample"
         >
           <div className="card card-body">
             <details>

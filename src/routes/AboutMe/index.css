@@ -29,3 +29,7 @@
 .contact-link address {
   margin-bottom: unset;
 }
+.content{
+  min-width: 0;
+  width:0;
+}
