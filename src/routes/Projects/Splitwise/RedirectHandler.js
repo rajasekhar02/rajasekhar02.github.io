@@ -3,15 +3,17 @@ import { useSearchParams, useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "../AuthContext";
 export default function RedirectHandler() {
   const [searchParams, setSearchParams] = useSearchParams();
-  let [loading, setLoading] = useState(false);
+  let [loading, setLoading] = useState(true);
+  // const loading = true;
   let navigate = useNavigate();
   let location = useLocation();
   let auth = useAuth();
-  let from = location.state?.from?.pathname || "dashboard";
+  let from = location.state?.from?.pathname || "/projects/splitwise/dashboard";
   const getAccessToken = async () => {
-    setLoading(true);
     const code = searchParams.get("code") || "invalid";
-    const state = searchParams.get("state") || "invalid";
+    if (code === "invalid") {
+      navigate("/projects", { replace: true });
+    }
     try {
       await auth.signIn(code);
       navigate(from, { replace: true });
@@ -23,6 +25,7 @@ export default function RedirectHandler() {
   };
   React.useEffect(() => {
     getAccessToken();
+    // console.log("print");
   }, []);
   return (
     <div>Redirect Handler {loading ? "loading ..." : "fetch access token"}</div>

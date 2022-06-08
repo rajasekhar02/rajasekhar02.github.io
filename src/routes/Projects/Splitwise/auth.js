@@ -9,14 +9,14 @@ const SplitwiseAuthProvider = {
     const splitwiseAuthPayload = localStore.getData(
       SplitwiseAuthProvider.LOCAL_STORE_KEY
     );
-    return Boolean(splitwiseAuthPayload);
+    return Boolean(splitwiseAuthPayload?.accessToken);
   },
   signIn: async function (code) {
     const splitwiseAuthPayload = localStore.getData(
       SplitwiseAuthProvider.LOCAL_STORE_KEY
     );
     try {
-      if (!splitwiseAuthPayload) {
+      if (!splitwiseAuthPayload?.accessToken) {
         const response = await getAccessToken(code);
         localStore.setData(SplitwiseAuthProvider.LOCAL_STORE_KEY, {
           code: code,

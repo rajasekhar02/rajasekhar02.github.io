@@ -17,7 +17,10 @@ export const getAccessToken = function (code) {
 };
 
 // authentication needed apis
-
+export const getCurrentUser = function () {
+  return authAxios.get("/get_current_user");
+};
 export default {
-  getAccessToken
+  getAccessToken,
+  getCurrentUser
 };

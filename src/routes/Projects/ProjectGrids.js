@@ -37,8 +37,9 @@ function ActionButton() {
   );
 }
 export default function ProjectGrids() {
+  const auth = useAuth();
   return (
-    <div className="card" style={{ width: "18rem" }}>
+    <div className="card" style={{ width: "18rem" }} key={auth.isAuthenticated}>
       {/* <img src="..." className="card-img-top" alt="..."> */}
       <div className="card-body">
         <h5 className="card-title">Splitwise Dashboard</h5>
