@@ -1,5 +1,7 @@
 import axios from "axios";
 import CREDENTIALS from "./credentials.json";
+import localStore from "../../../utils/localStore";
+import SplitwiseAuthProvider from "./auth";
 // Set config defaults when creating the instance
 export const unAuthAxios = axios.create({
   baseURL: `${CREDENTIALS.PROXY_URL}/https://secure.splitwise.com/`
@@ -12,13 +14,15 @@ authAxios.interceptors.request.use(function (config) {
   const splitwiseAuthPayload = localStore.getData(
     SplitwiseAuthProvider.LOCAL_STORE_KEY
   );
-  if (!splitwiseAuthPayload) {
+  if (!splitwiseAuthPayload?.accessToken) {
     throw new Error("Missing Authentication Keys");
   }
-  config.headers.Authorization = `${splitwiseAuthPayload.tokenType} ${splitwiseAuthPayload.accessToken}`;
+  config.headers.Authorization = `Bearer ${splitwiseAuthPayload.accessToken}`;
   return config;
 });
-
+authAxios.interceptors.response.use(function ({ data, status, statusText }) {
+  return { data, status, statusText };
+});
 export default {
   unAuthAxios,
   authAxios

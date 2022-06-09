@@ -20,7 +20,12 @@ export const getAccessToken = function (code) {
 export const getCurrentUser = function () {
   return authAxios.get("/get_current_user");
 };
+export const getCurrentUserGroups = function () {
+  return authAxios.get("/get_groups");
+};
+
 export default {
   getAccessToken,
-  getCurrentUser
+  getCurrentUser,
+  getCurrentUserGroups
 };

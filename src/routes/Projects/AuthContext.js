@@ -1,11 +1,12 @@
 import React from "react";
 import SplitwiseAuth from "./Splitwise/auth";
+
 let AuthContext = React.createContext({
   isAuthenticated: false,
-  setUser: undefined,
   signIn: undefined,
   signOut: undefined,
-  user: undefined
+  user: undefined,
+  setUser: undefined
 });
 export const AuthProvider = function ({ children }) {
   let [user, setUser] = React.useState(undefined);
@@ -25,9 +26,9 @@ export const AuthProvider = function ({ children }) {
 
   let value = {
     isAuthenticated,
-    setUser,
     signIn,
     signOut,
+    setUser,
     user
   };
 

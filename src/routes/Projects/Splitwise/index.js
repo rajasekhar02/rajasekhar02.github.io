@@ -1,11 +1,12 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import { getCurrentUser } from "./services";
+import { SplitwiseContextProvider } from "./SplitwiseContext";
 export default function Splitwise() {
-  React.useEffect;
   return (
     <div>
-      <Outlet></Outlet>
+      <SplitwiseContextProvider>
+        <Outlet></Outlet>
+      </SplitwiseContextProvider>
     </div>
   );
 }

@@ -11,6 +11,7 @@ import Splitwise from "./routes/Projects/Splitwise";
 import RedirectHandler from "./routes/Projects/Splitwise/RedirectHandler";
 import AuthHandler from "./routes/Projects/AuthHandler";
 import { AuthProvider } from "./routes/Projects/AuthContext";
+import Dashboard from "./routes/Projects/Splitwise/Dashboard";
 const rootElement = document.getElementById("root");
 const root = createRoot(rootElement);
 root.render(
@@ -37,7 +38,7 @@ root.render(
               path="dashboard"
               element={
                 <AuthHandler>
-                  <div>dashboard</div>
+                  <Dashboard />
                 </AuthHandler>
               }
             ></Route>

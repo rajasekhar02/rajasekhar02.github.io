@@ -19,13 +19,12 @@ export default function RedirectHandler() {
       navigate(from, { replace: true });
       setLoading(false);
     } catch (err) {
-      console.log(err);
+      console.error(err);
       setLoading(false);
     }
   };
   React.useEffect(() => {
     getAccessToken();
-    // console.log("print");
   }, []);
   return (
     <div>Redirect Handler {loading ? "loading ..." : "fetch access token"}</div>

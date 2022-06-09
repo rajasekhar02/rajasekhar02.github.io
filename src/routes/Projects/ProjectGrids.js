@@ -1,7 +1,7 @@
 import React from "react";
 import { v4 as uuidv4 } from "uuid";
 import CREDENTIALS from "./Splitwise/credentials.json";
-import { AuthProvider, useAuth } from "./AuthContext";
+import { useAuth } from "./AuthContext";
 import { useNavigate } from "react-router";
 const client_id = CREDENTIALS.CLIENT_ID;
 

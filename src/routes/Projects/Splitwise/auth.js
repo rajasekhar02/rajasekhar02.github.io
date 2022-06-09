@@ -2,9 +2,6 @@ import localStore from "../../../utils/localStore";
 import { getAccessToken } from "./services";
 const SplitwiseAuthProvider = {
   LOCAL_STORE_KEY: "splitwiseAuthPayload",
-  isAuthenticated: false,
-  accessToken: undefined,
-  apiAccessToken: undefined,
   authStatus: function () {
     const splitwiseAuthPayload = localStore.getData(
       SplitwiseAuthProvider.LOCAL_STORE_KEY
@@ -24,18 +21,12 @@ const SplitwiseAuthProvider = {
           tokenType: response.data.token_type
         });
       }
-      SplitwiseAuthProvider.isAuthenticated = true;
-      SplitwiseAuthProvider.accessToken = splitwiseAuthPayload.accessToken;
-      SplitwiseAuthProvider.apiAccessToken = `${splitwiseAuthPayload.tokenType} ${splitwiseAuthPayload.accessToken}`;
       return true;
     } catch (err) {
       return false;
     }
   },
   signOut: function () {
-    SplitwiseAuthProvider.isAuthenticated = false;
-    SplitwiseAuthProvider.accessToken = undefined;
-    SplitwiseAuthProvider.apiAccessToken = undefined;
     localStore.deleteDataWith(SplitwiseAuthProvider.LOCAL_STORE_KEY);
   }
 };
