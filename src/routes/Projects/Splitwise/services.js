@@ -23,9 +23,14 @@ export const getCurrentUser = function () {
 export const getCurrentUserGroups = function () {
   return authAxios.get("/get_groups");
 };
-
+export const getExpensesWithFriendId = function (friendId, params) {
+  return authAxios.get("/get_expenses", {
+    params: { friend_id: friendId, ...params }
+  });
+};
 export default {
   getAccessToken,
   getCurrentUser,
-  getCurrentUserGroups
+  getCurrentUserGroups,
+  getExpensesWithFriendId
 };

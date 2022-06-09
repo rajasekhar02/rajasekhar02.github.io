@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
-
+import { useSearchParams } from "react-router-dom";
 import localStore from "../../../utils/localStore";
 import { useAuth } from "../AuthContext";
-import { getCurrentUser, getCurrentUserGroups } from "./services";
+import {
+  getCurrentUser,
+  getCurrentUserGroups,
+  getExpensesWithFriendId
+} from "./services";
 import { useSplitwise } from "./SplitwiseContext";
-export default function Dashboard() {
-  const [selectedCollapse, setSelectedCollapse] = useState(0);
-  const auth = useAuth();
-  const splitwise = useSplitwise();
+const callGetCurrentUser = function (auth) {
   useEffect(() => {
     let response;
     if (!localStore.getData("user")) {
@@ -20,6 +21,8 @@ export default function Dashboard() {
       auth.setUser(localStore.getData("user"));
     }
   }, []);
+};
+const callGetCurrentUserGroups = function (splitwise) {
   useEffect(() => {
     let response;
     if (!localStore.getData("groups")) {
@@ -32,6 +35,30 @@ export default function Dashboard() {
       splitwise.setGroups(localStore.getData("groups"));
     }
   }, []);
+};
+const callGetExpensesWithFriendId = function (searchParams, setExpenses) {
+  useEffect(() => {
+    let response;
+    (async function () {
+      response = await getExpensesWithFriendId(searchParams.get("memberId"), {
+        limit: 20,
+        offset: 0
+      });
+      setExpenses(response.data.expenses);
+    })();
+  }, []);
+};
+export default function Dashboard() {
+  const [params, setParams] = useSearchParams();
+  const [selectedCollapse, setSelectedCollapse] = useState(
+    params.get("groupId") || 0
+  );
+  const [expenses, setExpenses] = useState([]);
+  const auth = useAuth();
+  const splitwise = useSplitwise();
+  callGetCurrentUser(auth);
+  callGetCurrentUserGroups(splitwise);
+  callGetExpensesWithFriendId(params, setExpenses);
   function collapseButtonClick(selectedIndex) {
     setSelectedCollapse(selectedIndex);
   }
@@ -57,9 +84,8 @@ export default function Dashboard() {
             First Name
           </label>
           <input
-            type="email"
+            type="text"
             className="form-control"
-            id="exampleFormControlInput1"
             placeholder="name@example.com"
             value={auth.user?.first_name}
             readOnly
@@ -70,7 +96,7 @@ export default function Dashboard() {
             Last Name
           </label>
           <input
-            type="email"
+            type="text"
             className="form-control"
             id="exampleFormControlInput1"
             placeholder="name@example.com"
@@ -83,7 +109,7 @@ export default function Dashboard() {
             Currency
           </label>
           <input
-            type="email"
+            type="text"
             className="form-control"
             id="exampleFormControlInput1"
             placeholder="name@example.com"
@@ -119,7 +145,10 @@ export default function Dashboard() {
                   ? (splitwise.groups[selectedCollapse] || {})?.members.map(
                       (user, userIndex) => {
                         return (
-                          <div>{`${user.first_name} ${user.last_name}`}</div>
+                          <a
+                            key={userIndex}
+                            href={`/projects/splitwise/dashboard?groupId=${selectedCollapse}&panels=["show_expenses"]&memberId=${user.id}`}
+                          >{`${user.first_name} ${user.last_name}`}</a>
                         );
                       }
                     )
@@ -128,6 +157,9 @@ export default function Dashboard() {
             </div>
           </div>
         </div>
+      </div>
+      <div className="col">
+        <pre>{JSON.stringify(expenses, null, "\t")}</pre>
       </div>
     </div>
   );
