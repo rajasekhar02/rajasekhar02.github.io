@@ -1,9 +1,9 @@
 import React from "react";
 import { v4 as uuidv4 } from "uuid";
-import CREDENTIALS from "./Splitwise/credentials.json";
+import CONSTANTS from "./Splitwise/constants.json";
 import { useAuth } from "./AuthContext";
 import { useNavigate } from "react-router";
-const client_id = CREDENTIALS.CLIENT_ID;
+const client_id = CONSTANTS.CLIENT_ID;
 
 function ActionButton() {
   const auth = useAuth();
@@ -26,7 +26,7 @@ function ActionButton() {
       ) : (
         <a
           href={`https://secure.splitwise.com/oauth/authorize?redirect_uri=${
-            CREDENTIALS.REDIRECT_URI
+            CONSTANTS.REDIRECT_URI
           }&response_type=code&state=${uuidv4()}&client_id=${client_id}`}
           className="btn btn-primary"
         >

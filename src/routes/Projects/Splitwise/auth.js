@@ -1,7 +1,8 @@
 import localStore from "../../../utils/localStore";
+import CONSTANTS from "./constants.json";
 import { getAccessToken } from "./services";
 const SplitwiseAuthProvider = {
-  LOCAL_STORE_KEY: "splitwiseAuthPayload",
+  LOCAL_STORE_KEY: CONSTANTS.LOCAL_STORE_KEYS.splitwiseAuthPayload,
   authStatus: function () {
     const splitwiseAuthPayload = localStore.getData(
       SplitwiseAuthProvider.LOCAL_STORE_KEY
@@ -27,7 +28,9 @@ const SplitwiseAuthProvider = {
     }
   },
   signOut: function () {
-    localStore.deleteDataWith(SplitwiseAuthProvider.LOCAL_STORE_KEY);
+    Object.values(CONSTANTS.LOCAL_STORE_KEYS).forEach((localStoreKey) => {
+      localStore.deleteDataWith(localStoreKey);
+    });
   }
 };
 

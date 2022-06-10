@@ -1,14 +1,14 @@
 import axios from "axios";
-import CREDENTIALS from "./credentials.json";
+import CONSTANTS from "./constants.json";
 import localStore from "../../../utils/localStore";
 import SplitwiseAuthProvider from "./auth";
 // Set config defaults when creating the instance
 export const unAuthAxios = axios.create({
-  baseURL: `${CREDENTIALS.PROXY_URL}/https://secure.splitwise.com/`
+  baseURL: `${CONSTANTS.PROXY_URL}/https://secure.splitwise.com/`
 });
 
 export const authAxios = axios.create({
-  baseURL: `${CREDENTIALS.PROXY_URL}/https://secure.splitwise.com/api/v3.0`
+  baseURL: `${CONSTANTS.PROXY_URL}/https://secure.splitwise.com/api/v3.0`
 });
 authAxios.interceptors.request.use(function (config) {
   const splitwiseAuthPayload = localStore.getData(

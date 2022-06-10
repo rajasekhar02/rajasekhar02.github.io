@@ -1,14 +1,20 @@
 import React from "react";
 let SplitwiseContext = React.createContext({
   groups: undefined,
-  setGroups: undefined
+  setGroups: undefined,
+  indexOnUsersInGroups: undefined,
+  setIndexOnUsersInGroups: undefined
 });
 
 export const SplitwiseContextProvider = function ({ children }) {
   let [groups, setGroups] = React.useState(undefined);
+  let [indexOnUsersInGroups, setIndexOnUsersInGroups] =
+    React.useState(undefined);
   let value = {
     groups,
-    setGroups
+    setGroups,
+    indexOnUsersInGroups,
+    setIndexOnUsersInGroups
   };
   return (
     <SplitwiseContext.Provider value={value}>

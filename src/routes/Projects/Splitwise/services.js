@@ -1,14 +1,14 @@
 import { unAuthAxios, authAxios } from "./axiosConfig";
-import CREDENTIALS from "./credentials.json";
+import CONSTANTS from "./constants.json";
 // unauth apis
 export const getAccessToken = function (code) {
   const params = new URLSearchParams();
   [
-    ["client_id", CREDENTIALS.CLIENT_ID],
-    ["client_secret", CREDENTIALS.CLIENT_SECRET],
+    ["client_id", CONSTANTS.CLIENT_ID],
+    ["client_secret", CONSTANTS.CLIENT_SECRET],
     ["grant_type", "authorization_code"],
     ["code", code],
-    ["redirect_uri", CREDENTIALS.REDIRECT_URI]
+    ["redirect_uri", CONSTANTS.REDIRECT_URI]
   ].forEach(([item, value]) => {
     params.append(item, value);
   });
