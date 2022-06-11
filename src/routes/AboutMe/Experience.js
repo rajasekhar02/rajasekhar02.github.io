@@ -39,34 +39,96 @@ export default function Experience() {
             <p>
               Later I was assigned to learn the vue.js framework which is used
               as frontend for version 2 of Pondlogs application. I am the only
-              person in the frontend for the newer version which helped me in
-              developing the ability to work independently upto one year. After
+              person in the frontend upto one year for the newer version which
+              helped me in developing the ability to work independently. After
               that team size increased to 3 persons. As I was re-writing each
               part of the old version I learned element-ui, Highcharts (library
               for data visualization), Google Maps Api, date-fns,
-              momentjs,excel.js, fuse.js(elastic search at frontend),
+              momentjs,xlsx.js, fuse.js(elastic search at frontend),
               webpack(bundling), and vue.js ecosystem(vuex, vue router, vuei18n,
-              virtual scroller, vue-grid-layout).
+              virtual scroller, vue-grid-layout). Also I gained some expertise
+              in using git for software verisioning.
             </p>
             <p>
-              I have implemented features as follows access control management
-              over entire application, image viewer similar to google photos
-              using virtual scroller, vue-grid-layout, fuzzy search over the
-              data in the tables, extending the functionality of components in
-              the element-ui framework to our business needs, developed a small
-              tool for web scraping using puppeteer, form builder component used
-              in admin scope of the pondlogs version, Admin Application which is
-              used internally in out company for device, customer management,
-              Conditionally toggling the features based on the user access
-              permissions, possession of devices types, Changing the fields
-              according to the user configured preferences.
+              I have implemented the following features:
+              <ol>
+                <li>
+                  Built Dashboards where processing and computation is
+                  implemented at client side using web workers over thousands of
+                  records at frontend using highcharts. Also implemented
+                  resizing the charts using resize observer which resulted in
+                  performance bottleneck in one page. There I resolved the
+                  performance issue by using throttling inside request animation
+                  frame function.
+                </li>
+                <li>
+                  Maps Page where the customers(shrimp farmers) are allowed to
+                  draw ponds on the google maps canvas and data visualization
+                  such as changing the draw pond color based on IOT devices data
+                  and preferences provided by the user. In this I faced
+                  challenges such as managing the states of the maps, handling
+                  geometric data.
+                </li>
+                <li>
+                  Access control management for different types of users over
+                  entire application adhereing to SOLID priciples.
+                </li>
+                <li>
+                  Image preview viewer using virtual scroller, vue-grid-layout,
+                  along with lazy loading using lozad.
+                </li>
+                <li>
+                  Fuzzy search and highlighting the found part in the data for a
+                  search using fuse.js, exporting the data as pdf and excel
+                  using jspdf,xlsx.js on the tables. Here I have extended the
+                  element ui table api and provided an interface that takes
+                  configuration objects enables these features.
+                </li>
+                <li>
+                  Extending the functionality for components such as date
+                  picker, image previewer, tables and implementing base
+                  components on the element-ui components for allowing
+                  customization to our business needs. Here I have also changed
+                  the default webpack, and vuejs configuration to resolve the
+                  compilation issues.
+                </li>
+                <li>
+                  Form builder component where it takes json as input and create
+                  a form along with validation using vee-validate, element-ui
+                  form elements.
+                </li>
+                <li>
+                  Admin side Applications and handled tables containing 10000
+                  rows with virtual row rendering provided by the ag-grid,
+                  backend pagination and infinite scroll using intersection
+                  observer.
+                </li>
+                <li>
+                  Conditionally toggling the features based on the user
+                  permissions, possession of devices types.
+                </li>
+                <li>
+                  Displaying the fields value according to the user configured
+                  preferences.
+                </li>
+                <li>
+                  A small tool for web scraping data from pondlogs v1 using
+                  puppeteer for device team.
+                </li>
+              </ol>
             </p>
             <p>
-              I have learned and implemented virtual row rendering, lazy
-              loading, using web workers for heavy data computation which
-              improves the performance of the web application. I learned to
-              implement complex tasks by dividing them into small manageable
-              tasks.
+              I have developed following management and behavioural skills:
+              <ol>
+                <li>
+                  I learned to implement complex tasks by dividing them into
+                  small manageable tasks.
+                </li>
+                <li>
+                  Collaborating with backend team for apis, product manager for
+                  requirements gathering.
+                </li>
+              </ol>
             </p>
           </div>
         </div>
