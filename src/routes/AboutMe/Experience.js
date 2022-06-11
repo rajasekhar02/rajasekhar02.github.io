@@ -50,18 +50,18 @@ export default function Experience() {
               in using git for software verisioning.
             </p>
             <p>
-              I have implemented the following features:
-              <ol>
-                <li>
+              <strong> I have implemented the following features:</strong>
+              <ol className="list-group list-group-numbered ">
+                <li className=" list-group-item ">
                   Built Dashboards where processing and computation is
                   implemented at client side using web workers over thousands of
                   records at frontend using highcharts. Also implemented
                   resizing the charts using resize observer which resulted in
-                  performance bottleneck in one page. There I resolved the
+                  performance bottleneck in one page. Here I resolved the
                   performance issue by using throttling inside request animation
                   frame function.
                 </li>
-                <li>
+                <li className="list-group-item ">
                   Maps Page where the customers(shrimp farmers) are allowed to
                   draw ponds on the google maps canvas and data visualization
                   such as changing the draw pond color based on IOT devices data
@@ -69,22 +69,7 @@ export default function Experience() {
                   challenges such as managing the states of the maps, handling
                   geometric data.
                 </li>
-                <li>
-                  Access control management for different types of users over
-                  entire application adhereing to SOLID priciples.
-                </li>
-                <li>
-                  Image preview viewer using virtual scroller, vue-grid-layout,
-                  along with lazy loading using lozad.
-                </li>
-                <li>
-                  Fuzzy search and highlighting the found part in the data for a
-                  search using fuse.js, exporting the data as pdf and excel
-                  using jspdf,xlsx.js on the tables. Here I have extended the
-                  element ui table api and provided an interface that takes
-                  configuration objects enables these features.
-                </li>
-                <li>
+                <li className="list-group-item ">
                   Extending the functionality for components such as date
                   picker, image previewer, tables and implementing base
                   components on the element-ui components for allowing
@@ -92,41 +77,78 @@ export default function Experience() {
                   the default webpack, and vuejs configuration to resolve the
                   compilation issues.
                 </li>
-                <li>
-                  Form builder component where it takes json as input and create
-                  a form along with validation using vee-validate, element-ui
-                  form elements.
+                <li className="list-group-item ">
+                  Fuzzy search and highlighting the found part in the data for a
+                  search using fuse.js, exporting the data as pdf and excel
+                  using jspdf,xlsx.js on the tables. Here I have extended the
+                  element ui table api and provided an interface that takes
+                  configuration objects enables these features.
                 </li>
-                <li>
+                <li className=" list-group-item ">
+                  Access control management for different types of users over
+                  entire application adhereing to SOLID priciples. Here by using
+                  a permission object and a custom implemented mixin I was able
+                  to handle the access control at each level from pages to
+                  components.
+                </li>
+                <li className="list-group-item ">
+                  Image preview viewer using virtual scroller, vue-grid-layout,
+                  along with lazy loading using lozad. Here I made a component
+                  that takes the array of objects containing image url and
+                  images meta data as input and displays the grid of images.
+                </li>
+                <li className="list-group-item ">
+                  Form builder component where it takes json data object along
+                  with configuration of the field as input and create a form
+                  along with validations using vee-validate, element-ui form
+                  elements.
+                </li>
+                <li className="list-group-item ">
                   Admin side Applications and handled tables containing 10000
                   rows with virtual row rendering provided by the ag-grid,
                   backend pagination and infinite scroll using intersection
                   observer.
                 </li>
-                <li>
+                <li className="list-group-item ">
                   Conditionally toggling the features based on the user
                   permissions, possession of devices types.
                 </li>
-                <li>
+                <li className="list-group-item ">
                   Displaying the fields value according to the user configured
                   preferences.
                 </li>
-                <li>
+                <li className="list-group-item ">
                   A small tool for web scraping data from pondlogs v1 using
                   puppeteer for device team.
                 </li>
               </ol>
             </p>
             <p>
-              I have developed following management and behavioural skills:
-              <ol>
-                <li>
+              <strong>
+                I have developed following management and behavioural skills:
+              </strong>
+              <ol className="list-group list-group-numbered">
+                <li className="list-group-item">
                   I learned to implement complex tasks by dividing them into
                   small manageable tasks.
                 </li>
-                <li>
+                <li className="list-group-item">
                   Collaborating with backend team for apis, product manager for
                   requirements gathering.
+                </li>
+                <li className="list-group-item">
+                  Understanding the code and documentation of the open source
+                  projects to learn design thoughts and expand my technical
+                  knowledge
+                </li>
+                <li className="list-group-item">
+                  Ablity to work independently.
+                </li>
+                <li className="list-group-item">
+                  Asking for help and helping others both technically and career growth. 
+                </li>
+                <li className="list-group-item">
+                  Take responsibility for work
                 </li>
               </ol>
             </p>
