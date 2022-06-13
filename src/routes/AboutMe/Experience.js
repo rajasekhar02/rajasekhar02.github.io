@@ -19,8 +19,9 @@ export default function Experience() {
           <p className="mb-1">Software Engineer</p>
           <small className="text-muted">
             element-ui, Highcharts, Google Maps Api, date-fns,
-            momentjs,excel.js, fuse.js, webpack, and vue.js ecosystem(vuex, vue
-            router, vuei18n, virtual scroller, vue-grid-layout).
+            momentjs,excel.js, fuse.js, webpack, husky, and vue.js
+            ecosystem(vuex, vue router, vuei18n, virtual scroller,
+            vue-grid-layout).
           </small>
         </a>
         <div
@@ -145,7 +146,8 @@ export default function Experience() {
                   Ablity to work independently.
                 </li>
                 <li className="list-group-item">
-                  Asking for help and helping others both technically and career growth. 
+                  Asking for help and helping others both technically and career
+                  growth.
                 </li>
                 <li className="list-group-item">
                   Take responsibility for work
