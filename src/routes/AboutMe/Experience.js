@@ -1,6 +1,6 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
-const listOfJobs = [''];
+import React from "react";
+import { useParams } from "react-router-dom";
+const listOfJobs = [""];
 export default function Experience() {
   const { string_slug } = useParams();
   return (
@@ -26,7 +26,7 @@ export default function Experience() {
         </a>
         <div
           className={`collapse ${
-            string_slug === 'software-dev-in-eruvaka' && 'show'
+            string_slug === "software-dev-in-eruvaka" && "show"
           }  collapse-sftwr-dev-ervk`}
         >
           <div className="card card-body">
@@ -171,7 +171,7 @@ export default function Experience() {
         </a>
         <div
           className={`collapse ${
-            string_slug === 'ast-in-tcs' && 'show'
+            string_slug === "ast-in-tcs" && "show"
           }  collapse-ast-in-tcs`}
         >
           <div className="card card-body">

@@ -18,7 +18,7 @@ root.render(
   // <StrictMode>
   <BrowserRouter>
     <Routes>
-      <Route path="/quest-to-learn/" element={<App />}>
+      <Route path="/" element={<App />}>
         <Route index element={<AboutMe />}></Route>
         <Route path="about-me" element={<AboutMe />}>
           <Route path=":string_slug" element={<AboutMe />} />
