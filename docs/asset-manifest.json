@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/quest-to-learn/static/css/main.ee729c57.css",
-    "main.js": "/quest-to-learn/static/js/main.6d298312.js",
+    "main.js": "/quest-to-learn/static/js/main.fdac5dc5.js",
     "static/media/profile-picture.png": "/quest-to-learn/static/media/profile-picture.06d262967d754c08c0d4.png",
     "index.html": "/quest-to-learn/index.html",
     "main.ee729c57.css.map": "/quest-to-learn/static/css/main.ee729c57.css.map",
-    "main.6d298312.js.map": "/quest-to-learn/static/js/main.6d298312.js.map"
+    "main.fdac5dc5.js.map": "/quest-to-learn/static/js/main.fdac5dc5.js.map"
   },
   "entrypoints": [
     "static/css/main.ee729c57.css",
-    "static/js/main.6d298312.js"
+    "static/js/main.fdac5dc5.js"
   ]
 }
