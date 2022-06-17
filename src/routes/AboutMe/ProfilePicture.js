@@ -1,9 +1,11 @@
-import React from 'react';
+import React from "react";
+import logo from "assets/profile-picture.png"; // Tell webpack this JS file uses this image
+
 export default function ProfilePicture() {
   return (
     <div className="image-mask">
       <img
-        src="https://stackblitz.com/files/quest-to-learn/github/rajasekhar02/my-resume-rajasekhar02/master/public/profile-picture.png"
+        src={logo}
         className="img-fluid rounded"
         alt="Profile Picture"
         width="150"
