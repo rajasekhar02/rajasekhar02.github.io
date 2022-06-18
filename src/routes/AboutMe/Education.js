@@ -57,7 +57,11 @@ export default function Education() {
             </a>
             <div
               className={`collapse ${
-                string_slug === get(eachEducationDetail, "educationSlug") &&
+                [get(eachEducationDetail, "educationSlug"), undefined].includes(
+                  string_slug
+                ) &&
+                get(eachEducationDetail, "coursesEnrolledCollection.items", [])
+                  .length !== 0 &&
                 "show"
               }`}
             >

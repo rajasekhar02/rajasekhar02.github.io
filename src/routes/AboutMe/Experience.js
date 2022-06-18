@@ -70,7 +70,9 @@ export default function Experience() {
             </a>
             <div
               className={`collapse ${
-                string_slug === getExpKeyValue("experienceSlug") && "show"
+                [getExpKeyValue("experienceSlug"), undefined].includes(
+                  string_slug
+                ) && "show"
               }`}
             >
               <div className="card card-body">
