@@ -75,6 +75,25 @@ query EducationDetails($user_id: String!) {
   }
 }
 `;
+const professionalExperiences = `
+query ExperienceDetails($user_id: String!) {
+  experience_details: professionalExperienceCollection(where: {user: {sys: {id: $user_id}}}, order: [startDate_DESC]) {
+    items {
+      companyName,
+      companyLink,
+      role,
+      technologiesUsed,
+      isCurrent
+      startDate
+      endDate
+      experienceSlug
+      jobDescription {
+        json
+      }
+    }
+  }
+}
+`;
 export const getUserDetails = async function () {
   const response = await authAxios.post(
     "",
@@ -88,6 +107,13 @@ export const getEducationDetails = async function () {
     castToPayload(educationDetails, { user_id: CONSTANTS.USER_ID })
   );
   return response.data.data.education_details.items;
+};
+export const getExperienceDetails = async function () {
+  const response = await authAxios.post(
+    "",
+    castToPayload(professionalExperiences, { user_id: CONSTANTS.USER_ID })
+  );
+  return response.data.data.experience_details.items;
 };
 export default {
   getUserDetails,
