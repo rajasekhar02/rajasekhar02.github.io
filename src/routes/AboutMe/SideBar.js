@@ -1,22 +1,42 @@
-import React from 'react';
-import ProfilePicture from './ProfilePicture';
+import React, { useEffect } from "react";
+import ProfilePicture from "./ProfilePicture";
+import { getUserDetails } from "./services";
+import { useAboutMe } from "./AboutMeContext";
+import get from "lodash.get";
 export default function SideBar() {
+  const aboutMeContext = useAboutMe();
+  useEffect(() => {
+    (async () => {
+      const response = await getUserDetails();
+      aboutMeContext.setUserDetails(response);
+      console.log(response);
+    })();
+  }, []);
   return (
     <aside className="side-container border-end flex-grow-3 p-3">
       <div className="profile-picture">
         <ProfilePicture />
       </div>
-      <div className="name fs-4 fw-semibold">Raja Sekhar Pothina</div>
-      <div className="role fst-italic">Student</div>
+      <div className="name fs-4 fw-semibold">
+        {["firstName", "lastName"].reduce((acc, currKey, index) => {
+          return `${acc} ${get(
+            aboutMeContext.userDetails,
+            currKey,
+            index === 0 ? "Loading..." : ""
+          )}`;
+        }, "")}
+      </div>
+      {/* <div className="role fst-italic">Student</div> */}
       <div className="work-motto mt-3">
         <figure className="text-center">
           <blockquote className="blockquote">
             <p className="fs-6">
-              Keep Struggling, Success is just a day far and remind this to
-              yourself everyday
+              {get(aboutMeContext.userDetails, "quotes.text", "Loading ...")}
             </p>
           </blockquote>
-          <figcaption className="blockquote-footer">anonymous</figcaption>
+          <figcaption className="blockquote-footer">
+            {get(aboutMeContext.userDetails, "quotes.author", "Loading ...")}
+          </figcaption>
         </figure>
       </div>
       <div>
@@ -25,37 +45,120 @@ export default function SideBar() {
           <li className="list-group-item">
             <a
               className="contact-link"
-              href="https://goo.gl/maps/Hyio1yvwEezJXfCZA"
+              href={get(
+                aboutMeContext.userDetails,
+                "contactDetails.houseAddress.googleMapsLink",
+                "Loading ..."
+              )}
             >
               <address>
                 <i className="bi bi-geo-alt-fill"> </i>
-                <span>1300 N Oak Street,</span>
-                <div className="ms-4">Rolla,</div>
-                <div className="ms-4">Missouri-65401</div>
+                <span>
+                  {get(
+                    aboutMeContext.userDetails,
+                    "contactDetails.houseAddress.addressLine1",
+                    "Loading ..."
+                  )}
+                  ,
+                </span>
+                <div className="ms-4">
+                  {get(
+                    aboutMeContext.userDetails,
+                    "contactDetails.houseAddress.city",
+                    "Loading ..."
+                  )}
+                  ,
+                </div>
+                <div className="ms-4">
+                  {get(
+                    aboutMeContext.userDetails,
+                    "contactDetails.houseAddress.state",
+                    "Loading ..."
+                  )}
+                  -
+                  {get(
+                    aboutMeContext.userDetails,
+                    "contactDetails.houseAddress.pinCode",
+                    "Loading ..."
+                  )}
+                </div>
               </address>
-            </a>
-          </li>
-          <li className="list-group-item">
-            <a className="contact-link" href="tel:+15732021224">
-              <i className="bi bi-phone">&nbsp; +1-(573)-202-1224</i>
-            </a>
-          </li>
-          <li className="list-group-item">
-            <a className="contact-link" href="mailto:raja02sekhar08@gmail.com">
-              <i className="bi bi-envelope">&nbsp; raja02sekhar08@gmail.com</i>
-            </a>
-          </li>
-          <li className="list-group-item">
-            <a className="contact-link" href="https://github.com/rajasekhar02">
-              <i className="bi bi-github">&nbsp; rajasekhar02</i>
             </a>
           </li>
           <li className="list-group-item">
             <a
               className="contact-link"
-              href="https://www.linkedin.com/in/pothinarajasekhar/"
+              href={`tel:+${get(
+                aboutMeContext.userDetails,
+                "contactDetails.phoneNumber.number",
+                "Loading ..."
+              )}`}
             >
-              <i className="bi bi-linkedin">&nbsp; pothinarajasekhar</i>
+              <i className="bi bi-phone">
+                &nbsp;
+                {get(
+                  aboutMeContext.userDetails,
+                  "contactDetails.phoneNumber.displayNumber",
+                  "Loading ..."
+                )}
+              </i>
+            </a>
+          </li>
+          <li className="list-group-item">
+            <a
+              className="contact-link"
+              href={`mailto:${get(
+                aboutMeContext.userDetails,
+                "contactDetails.email",
+                "Loading ..."
+              )}`}
+            >
+              <i className="bi bi-envelope">
+                &nbsp;{" "}
+                {get(
+                  aboutMeContext.userDetails,
+                  "contactDetails.email",
+                  "Loading ..."
+                )}
+              </i>
+            </a>
+          </li>
+          <li className="list-group-item">
+            <a
+              className="contact-link"
+              href={get(
+                aboutMeContext.userDetails,
+                "contactDetails.githubProfileLink.link",
+                "Loading ..."
+              )}
+            >
+              <i className="bi bi-github">
+                &nbsp;
+                {get(
+                  aboutMeContext.userDetails,
+                  "contactDetails.githubProfileLink.title",
+                  "Loading ..."
+                )}
+              </i>
+            </a>
+          </li>
+          <li className="list-group-item">
+            <a
+              className="contact-link"
+              href={get(
+                aboutMeContext.userDetails,
+                "contactDetails.linkedInProfileLink.link",
+                "Loading ..."
+              )}
+            >
+              <i className="bi bi-linkedin">
+                &nbsp;
+                {get(
+                  aboutMeContext.userDetails,
+                  "contactDetails.linkedInProfileLink.title",
+                  "Loading ..."
+                )}
+              </i>
             </a>
           </li>
         </ul>
