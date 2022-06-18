@@ -32,6 +32,7 @@ query UserDetails($user_id:String!){
   }
 }
 `;
+
 const contactQuery = `
 query ContactDetails($user_id: String!){
     contact_details: contactCollection(where:{
@@ -51,6 +52,29 @@ query ContactDetails($user_id: String!){
     }
 }
 `;
+const educationDetails = `
+query EducationDetails($user_id: String!) {
+  education_details: educationCollection(where: {user: {sys: {id: $user_id}}},order: [startDate_DESC]) {
+    items {
+      universityName
+      universityLink
+      isCurrent
+      startDate
+      endDate
+      educationSlug
+      coursesEnrolledCollection{
+        items {
+        	title,
+          courseDescription{
+            json
+          }
+      	}
+      }
+      specialization
+    }
+  }
+}
+`;
 export const getUserDetails = async function () {
   const response = await authAxios.post(
     "",
@@ -58,14 +82,14 @@ export const getUserDetails = async function () {
   );
   return response.data.data.user_details;
 };
-export const getContactDetails = async function () {
+export const getEducationDetails = async function () {
   const response = await authAxios.post(
     "",
-    castToPayload(contactQuery, { user_id: CONSTANTS.USER_ID })
+    castToPayload(educationDetails, { user_id: CONSTANTS.USER_ID })
   );
-  return response.data.data.contact_details.items[0];
+  return response.data.data.education_details.items;
 };
 export default {
-  getContactDetails,
-  getUserDetails
+  getUserDetails,
+  getEducationDetails
 };
