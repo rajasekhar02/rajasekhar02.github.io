@@ -13,7 +13,11 @@ const richTextToReactOptions = {
     },
     "list-item": (node, children) => {
       // console.log(node.content[0].content[0].value);
-      return <li className="list-group-item d-flex">{children}</li>;
+      return (
+        <li className="list-group-item d-flex list-item-experience">
+          {children}
+        </li>
+      );
     }
   }
 };
@@ -49,12 +53,12 @@ export default function Experience() {
                     getExpKeyValue("isCurrent", false) ? "Current" : ""
                   } ${formatDate(
                     new Date(getExpKeyValue("startDate", new Date())),
-                    "yyyy"
+                    "MMM yyyy"
                   )}
                     -
                     ${formatDate(
                       new Date(getExpKeyValue("endDate", new Date())),
-                      "yyyy"
+                      "MMM yyyy"
                     )}
                   `}
                 </small>

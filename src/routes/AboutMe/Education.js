@@ -32,22 +32,21 @@ export default function Education() {
               <div className="d-flex w-100 justify-content-between">
                 <h5 className="mb-1">
                   {get(eachEducationDetail, "universityName")}
-                  {/* Missouri University
-                    of Science and Technology */}
                 </h5>
-                <small>
-                  {`${
-                    get(eachEducationDetail, "isCurrent", false)
-                      ? "Current"
-                      : ""
-                  } ${formatDate(
+                <small
+                  className={`${
+                    get(eachEducationDetail, "isCurrent", false) &&
+                    "fw-bolder fs-6"
+                  }`}
+                >
+                  {`${formatDate(
                     new Date(get(eachEducationDetail, "startDate", new Date())),
-                    "yyyy"
+                    "MMM yyyy"
                   )}
                     -
                     ${formatDate(
                       new Date(get(eachEducationDetail, "endDate", new Date())),
-                      "yyyy"
+                      "MMM yyyy"
                     )}
                   `}
                 </small>
@@ -55,7 +54,6 @@ export default function Education() {
               <p className="mb-1">
                 {get(eachEducationDetail, "specialization")}
               </p>
-              {/* <small>And some small print.</small> */}
             </a>
             <div
               className={`collapse ${
