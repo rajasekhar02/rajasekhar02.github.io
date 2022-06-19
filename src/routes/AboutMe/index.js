@@ -40,7 +40,7 @@ export default function AboutMe() {
             options: {
               primaryColor: "var(--brand-color)",
               textColor: "var(--brand-color)",
-              zIndex: 1000
+              zIndex: 1100
             }
           }}
           continuous

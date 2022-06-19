@@ -172,13 +172,13 @@ const renderSideNavPlaceholder = function () {
       <div className="work-motto mt-3">
         <figure className="text-center">
           <blockquote className="blockquote">
-            <p className="fs-6">
+            <div className="fs-6">
               <div className="placeholder col-3"></div>
               <div className="ms-3 placeholder col-3"></div>
               <div className="ms-3 placeholder col-3"></div>
               <div className="ms-3 placeholder col-2"></div>
               <div className="ms-2 placeholder col-2"></div>
-            </p>
+            </div>
           </blockquote>
           <figcaption className="blockquote-footer">
             <div className="placeholder col-3"></div>
