@@ -5,7 +5,7 @@ import get from "lodash.get";
 export default function ProfilePicture() {
   const aboutMeContext = useAboutMe();
   return (
-    <div className="image-mask">
+    <div className="image-mask profile-picture-holder">
       {aboutMeContext.userDetails ? (
         <img
           src={get(aboutMeContext.userDetails, "profilePictureUrl.url") || logo}
