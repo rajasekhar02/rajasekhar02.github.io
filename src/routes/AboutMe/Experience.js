@@ -107,13 +107,13 @@ const renderExperienceDetailsPlaceHolder = function () {
             {[1, 2].map((placeholder) => {
               return (
                 // <div key={placeholder}>
-                <span className="ms-n2">
-                  <span class="ms-2 placeholder col-5"></span>
-                  <span class="ms-2 placeholder col-3"></span>
-                  <span class="ms-2 placeholder col-1"></span>
-                  <span class="ms-2 placeholder col-2"></span>
-                  <span class="ms-2 placeholder col-4"></span>
-                  <span class="ms-2 placeholder col-2"></span>
+                <span className="ms-n2" key={placeholder}>
+                  <span className="ms-2 placeholder col-5"></span>
+                  <span className="ms-2 placeholder col-3"></span>
+                  <span className="ms-2 placeholder col-1"></span>
+                  <span className="ms-2 placeholder col-2"></span>
+                  <span className="ms-2 placeholder col-4"></span>
+                  <span className="ms-2 placeholder col-2"></span>
                 </span>
               );
             })}
