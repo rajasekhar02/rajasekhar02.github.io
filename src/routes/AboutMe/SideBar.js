@@ -39,7 +39,7 @@ export default function SideBar() {
           </figcaption>
         </figure>
       </div>
-      <div>
+      <div className="contact-details">
         <ul className="list-group list-group-flush contact-info">
           <li className="list-group-item fw-semibold text-center">Contact</li>
           <li className="list-group-item">
