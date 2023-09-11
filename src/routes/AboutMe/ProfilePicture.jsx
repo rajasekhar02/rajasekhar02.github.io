@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '/src/assets/profile-picture.png'; // Tell webpack this JS file uses this image
+import logo from 'src/assets/profile-picture.png'; // Tell webpack this JS file uses this image
 import { useAboutMe } from './AboutMeContext';
 import get from 'lodash.get';
 export default function ProfilePicture() {

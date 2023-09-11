@@ -1,6 +1,6 @@
 import axios from 'axios';
 import CONSTANTS from './constants.json';
-import localStore from '/src/utils/localStore.js';
+import localStore from 'src/utils/localStore.js';
 // Set config defaults when creating the instance
 export const authAxios = axios.create({
   baseURL: `https://graphql.contentful.com/content/v1/spaces/${CONSTANTS.SPACE_ID}/environments/${CONSTANTS.ENVIRONMENT}`,
