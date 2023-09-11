@@ -1,2 +1,8 @@
 $enable-negative-margins: true;
-@import "node_modules/bootstrap/scss/bootstrap";
+@import 'node_modules/bootstrap/scss/bootstrap';
+@mixin row-cols($count) {
+  > * {
+    flex: 0 0 auto;
+    width: divide(100, $count);
+  }
+}
