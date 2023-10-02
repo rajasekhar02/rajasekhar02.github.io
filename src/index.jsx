@@ -1,12 +1,13 @@
-import React, { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
 import App from './App';
 import AboutMe from './routes/AboutMe/index';
 import LearningReferences from './routes/LearningReferences';
 import Projects from './routes/Projects/index';
 import ProjectGrids from './routes/Projects/ProjectGrids';
+import NoMatch from "./routes/NoMatch";
+
 const rootElement = document.getElementById('root');
 const root = createRoot(rootElement);
 root.render(
@@ -25,6 +26,8 @@ root.render(
           path="learning-references"
           element={<LearningReferences />}
         ></Route>
+        <Route path="*" element={<NoMatch />}>
+        </Route>
       </Route>
     </Routes>
   </BrowserRouter>
