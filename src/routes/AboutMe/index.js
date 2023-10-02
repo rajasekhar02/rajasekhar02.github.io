@@ -34,7 +34,7 @@ export default function AboutMe() {
   return (
     <section className="resume d-flex flex-wrap">
       <AboutMeProvider>
-        <Joyride
+        {/* <Joyride
           steps={productTour.steps}
           styles={{
             options: {
@@ -45,7 +45,7 @@ export default function AboutMe() {
           }}
           continuous
           run
-        ></Joyride>
+        ></Joyride> */}
         <SideBar />
         <main className="content p-3 flex-grow-1">
           {/* <section className="summary mt-3">

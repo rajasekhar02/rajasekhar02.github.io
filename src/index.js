@@ -1,10 +1,11 @@
 import React, { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
 import App from "./App";
 import AboutMe from "./routes/AboutMe/index.js";
 import LearningReferences from "./routes/LearningReferences";
+import NoMatch from "./routes/NoMatch";
 import Projects from "./routes/Projects/index.js";
 import ProjectGrids from "./routes/Projects/ProjectGrids";
 import Splitwise from "./routes/Projects/Splitwise";
@@ -21,7 +22,10 @@ root.render(
       <Route path="/" element={<App />}>
         <Route index element={<AboutMe />}></Route>
         <Route path="about-me" element={<AboutMe />}>
-          <Route path=":string_slug" element={<AboutMe />} />
+          <Route
+            path=":string_slug                                                                                                                                                                                                   "
+            element={<AboutMe />}
+          />
         </Route>
         <Route
           path="projects"
@@ -48,6 +52,10 @@ root.render(
           path="learning-references"
           element={<LearningReferences />}
         ></Route>
+        {/* <Route path="resume" element={<Resume />}></Route>
+         */}
+        <Route path="*" element={<NoMatch />}>
+        </Route>
       </Route>
     </Routes>
   </BrowserRouter>
