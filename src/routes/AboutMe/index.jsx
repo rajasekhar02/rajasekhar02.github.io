@@ -5,23 +5,6 @@ import "./index.css";
 import { AboutMeProvider } from "./AboutMeContext";
 import SocialMedia from "../../components/SocialMedia";
 
-function OldAboutMe() {
-  return (
-    <section classNameNameName="resume">
-      <AboutMeProvider>
-        <SideBar />
-        <main classNameNameName="">
-          {/* <section classNameNameName="summary mt-3">
-          <p classNameNameName="heading fw-bold fs-4 border-bottom">Summary</p>
-        </section> */}
-          <Education />
-          <Experience />
-        </main>
-      </AboutMeProvider>
-    </section>
-  );
-}
-
 export default function AboutMe() {
   return (
     <main className="flex-auto">
@@ -46,7 +29,7 @@ export default function AboutMe() {
                   environment where different people come up with ideas and work
                   together to solve problems and create new things. This fits
                   well with my desire to contribute meaningfully to projects
-                  that have a lasting impact. I'm excited to learn and grow
+                  that have a lasting impact. I&apos;m excited to learn and grow
                   through new experiences and opportunities.
                 </p>
                 <div className="mt-6 flex gap-6">
@@ -137,7 +120,6 @@ export default function AboutMe() {
               className="absolute inset-0 h-full w-full object-cover"
               style={{ color: "transparent" }}
               sizes="(min-width: 640px) 18rem, 11rem"
-              srcset=""
               src="/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage-3.454151b1.jpg&amp;w=3840&amp;q=75"
             />
           </div>
@@ -152,7 +134,6 @@ export default function AboutMe() {
               className="absolute inset-0 h-full w-full object-cover"
               style={{ color: "transparent" }}
               sizes="(min-width: 640px) 18rem, 11rem"
-              srcset=""
               src="/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage-4.5c6d0ed6.jpg&amp;w=3840&amp;q=75"
             />
           </div>
@@ -167,7 +148,6 @@ export default function AboutMe() {
               className="absolute inset-0 h-full w-full object-cover"
               style={{ color: "transparent" }}
               sizes="(min-width: 640px) 18rem, 11rem"
-              srcset=""
               src="/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage-5.6c6f2784.jpg&amp;w=3840&amp;q=75"
             />
           </div>
@@ -191,7 +171,7 @@ export default function AboutMe() {
                     </h2>
                     <time
                       className="relative z-10 order-first mb-3 flex items-center text-sm text-zinc-400 dark:text-zinc-500 pl-3.5"
-                      datetime="2022-09-05"
+                      dateTime="2022-09-05"
                     >
                       <span
                         className="absolute inset-y-0 left-0 flex items-center"
@@ -221,9 +201,9 @@ export default function AboutMe() {
                       >
                         <path
                           d="M6.75 5.75 9.25 8l-2.5 2.25"
-                          stroke-width="1.5"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
+                          strokeWidth="1.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
                         ></path>
                       </svg>
                     </div>
@@ -241,7 +221,7 @@ export default function AboutMe() {
                     </h2>
                     <time
                       className="relative z-10 order-first mb-3 flex items-center text-sm text-zinc-400 dark:text-zinc-500 pl-3.5"
-                      datetime="2022-09-02"
+                      dateTime="2022-09-02"
                     >
                       <span
                         className="absolute inset-y-0 left-0 flex items-center"
@@ -270,9 +250,9 @@ export default function AboutMe() {
                       >
                         <path
                           d="M6.75 5.75 9.25 8l-2.5 2.25"
-                          stroke-width="1.5"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
+                          strokeWidth="1.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
                         ></path>
                       </svg>
                     </div>
@@ -289,7 +269,7 @@ export default function AboutMe() {
                     </h2>
                     <time
                       className="relative z-10 order-first mb-3 flex items-center text-sm text-zinc-400 dark:text-zinc-500 pl-3.5"
-                      datetime="2022-07-14"
+                      dateTime="2022-07-14"
                     >
                       <span
                         className="absolute inset-y-0 left-0 flex items-center"
@@ -320,9 +300,9 @@ export default function AboutMe() {
                       >
                         <path
                           d="M6.75 5.75 9.25 8l-2.5 2.25"
-                          stroke-width="1.5"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
+                          strokeWidth="1.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
                         ></path>
                       </svg>
                     </div>
@@ -332,16 +312,15 @@ export default function AboutMe() {
                   <form
                     className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40"
                     action="/thank-you"
-                    data-dashlane-rid="f4601ac85f02fee7"
                     data-form-type="other"
                   >
                     <h2 className="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
                       <svg
                         viewBox="0 0 24 24"
                         fill="none"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                         aria-hidden="true"
                         className="h-6 w-6 flex-none"
                       >
@@ -367,17 +346,12 @@ export default function AboutMe() {
                         aria-label="Email address"
                         required=""
                         className="min-w-0 flex-auto appearance-none rounded-md border border-zinc-900/10 bg-white px-3 py-[calc(theme(spacing.2)-1px)] shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-teal-500 focus:outline-none focus:ring-4 focus:ring-teal-500/10 dark:border-zinc-700 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:placeholder:text-zinc-500 dark:focus:border-teal-400 dark:focus:ring-teal-400/10 sm:text-sm"
-                        data-dashlane-rid="52f4f890d2c09b51"
-                        data-kwimpalastatus="alive"
-                        data-kwimpalaid="1696356226153-0"
                         data-form-type="email"
                       />
                       <button
                         className="inline-flex items-center gap-2 justify-center rounded-md py-2 px-3 text-sm outline-offset-2 transition active:transition-none bg-zinc-800 font-semibold text-zinc-100 hover:bg-zinc-700 active:bg-zinc-800 active:text-zinc-100/70 dark:bg-zinc-700 dark:hover:bg-zinc-600 dark:active:bg-zinc-700 dark:active:text-zinc-100/70 ml-4 flex-none"
                         type="submit"
-                        data-dashlane-rid="36ce37793bb2d546"
                         data-form-type="other"
-                        data-dashlane-label="true"
                       >
                         Join
                       </button>
@@ -388,9 +362,9 @@ export default function AboutMe() {
                       <svg
                         viewBox="0 0 24 24"
                         fill="none"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                         aria-hidden="true"
                         className="h-6 w-6 flex-none"
                       >
@@ -434,9 +408,9 @@ export default function AboutMe() {
                             className="ml-auto text-xs text-zinc-400 dark:text-zinc-500"
                             aria-label="2019 until Present"
                           >
-                            <time datetime="2019">2019</time>{" "}
+                            <time dateTime="2019">2019</time>{" "}
                             <span aria-hidden="true">—</span>{" "}
-                            <time datetime="2023">Present</time>
+                            <time dateTime="2023">Present</time>
                           </dd>
                         </dl>
                       </li>
@@ -468,9 +442,9 @@ export default function AboutMe() {
                             className="ml-auto text-xs text-zinc-400 dark:text-zinc-500"
                             aria-label="2014 until 2019"
                           >
-                            <time datetime="2014">2014</time>{" "}
+                            <time dateTime="2014">2014</time>{" "}
                             <span aria-hidden="true">—</span>{" "}
-                            <time datetime="2019">2019</time>
+                            <time dateTime="2019">2019</time>
                           </dd>
                         </dl>
                       </li>
@@ -502,9 +476,9 @@ export default function AboutMe() {
                             className="ml-auto text-xs text-zinc-400 dark:text-zinc-500"
                             aria-label="2011 until 2014"
                           >
-                            <time datetime="2011">2011</time>{" "}
+                            <time dateTime="2011">2011</time>{" "}
                             <span aria-hidden="true">—</span>{" "}
-                            <time datetime="2014">2014</time>
+                            <time dateTime="2014">2014</time>
                           </dd>
                         </dl>
                       </li>
@@ -536,9 +510,9 @@ export default function AboutMe() {
                             className="ml-auto text-xs text-zinc-400 dark:text-zinc-500"
                             aria-label="2008 until 2011"
                           >
-                            <time datetime="2008">2008</time>{" "}
+                            <time dateTime="2008">2008</time>{" "}
                             <span aria-hidden="true">—</span>{" "}
-                            <time datetime="2011">2011</time>
+                            <time dateTime="2011">2011</time>
                           </dd>
                         </dl>
                       </li>
@@ -556,9 +530,9 @@ export default function AboutMe() {
                       >
                         <path
                           d="M4.75 8.75 8 12.25m0 0 3.25-3.5M8 12.25v-8.5"
-                          stroke-width="1.5"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
+                          strokeWidth="1.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
                         ></path>
                       </svg>
                     </a>
