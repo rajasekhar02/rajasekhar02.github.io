@@ -1,9 +1,22 @@
 <!DOCTYPE html>
-<html class="dark">
+<html class="">
 
 <head>
   <title>Raja Sekhar Pothina - Software Developer</title>
   <meta name="description" content="I’m Raja, a software developer">
+  <script>
+    if (
+      localStorage.theme === "dark" ||
+      (!("theme" in localStorage) &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches)
+    ) {
+      document.documentElement.classList.add("dark");
+      localStorage.theme = 'dark'
+    } else {
+      document.documentElement.classList.remove("dark");
+      localStorage.theme = 'light'
+    }
+  </script>
 </head>
 <style>
   :root {
