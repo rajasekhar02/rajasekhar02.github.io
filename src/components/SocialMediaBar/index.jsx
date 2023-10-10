@@ -6,7 +6,7 @@ export default function SocialMediaBar() {
   // TODO: Migrate the social media urls to a Database or Contentful
   const metaData = [
     {
-      url: "https://linkedin.com/rajasekhar02",
+      url: "https://linkedin.com/in/rajasekhar02",
       ariaLabel: "Follow on LinkedIn",
       icon: <Linkedin />
     },
@@ -16,7 +16,7 @@ export default function SocialMediaBar() {
       icon: <Github />
     },
     {
-      url: "https://twitter.com/rajasekhar02",
+      url: "https://twitter.com/raja02sekhar08",
       ariaLabel: "Follow on Twitter",
       icon: <Twitter />
     }
