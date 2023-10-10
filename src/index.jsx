@@ -33,6 +33,7 @@ const router = createBrowserRouter(
       <Route path="about" element={<AboutMe />}>
         <Route path=":string_slug" element={<AboutMe />} />
       </Route>
+      <Route path="articles" element={<NoMatch></NoMatch>}></Route>
       <Route path="uses" element={<NoMatch></NoMatch>}></Route>
       <Route path="projects" element={<Projects />}>
         <Route index element={<ProjectGrids />}></Route>
