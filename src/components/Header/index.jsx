@@ -8,52 +8,55 @@ import { useEffect, useRef } from "react";
 export default function Header() {
   let location = useLocation();
   let isIndexPath = "/" === location.pathname;
-  let r = useRef(null);
+  let headerRef = useRef(null);
   let t = useRef(null);
   let s = useRef(true);
+  console.log(import.meta.env.BASE_URL);
+  function addProperty(e, r) {
+    document.documentElement.style.setProperty(e, r);
+  }
+  function removeProperty(e) {
+    document.documentElement.style.removeProperty(e);
+  }
+  function N(e, r, t) {
+    return Math.min(Math.max(e, Math.min(r, t)), Math.max(r, t));
+  }
   useEffect(() => {
     var n;
-    let i =
-      (null === (n = t.current) || void 0 === n ? void 0 : n.offsetTop) ?? 0;
-    function a(e, r) {
-      document.documentElement.style.setProperty(e, r);
-    }
-    function o(e) {
-      document.documentElement.style.removeProperty(e);
-    }
-    function N(e, r, t) {
-      return Math.min(Math.max(e, Math.min(r, t)), Math.max(r, t));
-    }
+    let i = (null === (n = t.current) || (n && n.offsetTop)) ?? 0;
+
     function l() {
-      console.log(s);
       (function () {
-        if (!r.current) return;
-        let { top: e, height: t } = r.current.getBoundingClientRect(),
+        if (!headerRef.current) return;
+        let { top: e, height: t } = headerRef.current.getBoundingClientRect(),
           n = N(
             window.scrollY,
             0,
             document.body.scrollHeight - window.innerHeight
           );
         if (
-          (s.current && a("--header-position", "sticky"),
-          a("--content-offset", `${i}px`),
+          (s.current && addProperty("--header-position", "sticky"),
+          addProperty("--content-offset", `${i}px`),
           s.current || n < i)
         )
-          a("--header-height", `${i + t}px`), a("--header-mb", `${-i}px`);
+          addProperty("--header-height", `${i + t}px`),
+            addProperty("--header-mb", `${-i}px`);
         else if (e + t < -64) {
           let e = Math.max(t, n - 64);
-          a("--header-height", `${e}px`), a("--header-mb", `${t - e}px`);
+          addProperty("--header-height", `${e}px`),
+            addProperty("--header-mb", `${t - e}px`);
         } else
           0 === e &&
-            (a("--header-height", `${n + t}px`), a("--header-mb", `${-n}px`));
-        // some problem function L is retriggering
+            (addProperty("--header-height", `${n + t}px`),
+            addProperty("--header-mb", `${-n}px`));
+
         0 === e && n > 0 && n >= i
-          ? (a("--header-inner-position", "fixed"),
-            o("--header-top"),
-            o("--avatar-top"))
-          : (o("--header-inner-position"),
-            a("--header-top", "0px"),
-            a("--avatar-top", "0px"));
+          ? (addProperty("--header-inner-position", "fixed"),
+            removeProperty("--header-top"),
+            removeProperty("--avatar-top"))
+          : (removeProperty("--header-inner-position"),
+            addProperty("--header-top", "0px"),
+            addProperty("--avatar-top", "0px"));
       })(),
         (function () {
           if (!isIndexPath) return;
@@ -63,16 +66,16 @@ export default function Header() {
             s = (n * (1 - r)) / i + r;
           s = N(s, 1, r);
           let o = (n * (0 - t)) / i + t;
-          a(
+          addProperty(
             "--avatar-image-transform",
             `translate3d(${(o = N(o, 0, t))}rem, 0, 0) scale(${s})`
           );
           let l = 1 / (r / s);
-          a(
+          addProperty(
             "--avatar-border-transform",
             `translate3d(${(-t + o) * l}rem, 0, 0) scale(${l})`
           ),
-            a("--avatar-border-opacity", s === r ? "1" : "0");
+            addProperty("--avatar-border-opacity", s === r ? "1" : "0");
         })(),
         (s.current = !1);
     }
@@ -128,6 +131,11 @@ export default function Header() {
                         href="/"
                       >
                         {/* <ProfilePicture></ProfilePicture> */}
+                        <img
+                          className="rounded-full bg-zinc-100 object-cover dark:bg-zinc-800 h-16 w-16"
+                          src="/src/assets/profile-picture.png"
+                          alt="profile picture"
+                        />
                       </a>
                     </div>
                   </div>
@@ -138,7 +146,7 @@ export default function Header() {
         </>
       )}
       <div
-        ref={r}
+        ref={headerRef}
         className="top-0 z-10 h-16 pt-6"
         style={{ position: "var(--header-position)" }}
       >
@@ -150,7 +158,22 @@ export default function Header() {
             <div className="relative px-4 sm:px-8 lg:px-12">
               <div className="mx-auto max-w-2xl lg:max-w-5xl">
                 <div className="relative flex gap-4">
-                  <div className="flex flex-1"></div>
+                  <div className="flex flex-1">
+                    {!isIndexPath && (
+                      <a
+                        aria-label="Home"
+                        className="pointer-events-auto"
+                        href="/"
+                      >
+                        <img
+                          src="/src/assets/profile-picture.png"
+                          alt="Raja Sekhar"
+                          className="rounded-full bg-zinc-100 object-cover dark:bg-zinc-800 h-9 w-9"
+                          style={{ color: "transparent;" }}
+                        />
+                      </a>
+                    )}
+                  </div>
                   <div className="flex flex-1 justify-end md:justify-center">
                     <NavigationMenu></NavigationMenu>
                   </div>
