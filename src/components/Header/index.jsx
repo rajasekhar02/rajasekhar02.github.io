@@ -9,7 +9,7 @@ export default function Header() {
   let location = useLocation();
   let isIndexPath = "/" === location.pathname;
   let headerRef = useRef(null);
-  let t = useRef(null);
+  let contentOffsetter = useRef(undefined);
   let s = useRef(true);
   console.log(import.meta.env.BASE_URL);
   function addProperty(e, r) {
@@ -18,78 +18,81 @@ export default function Header() {
   function removeProperty(e) {
     document.documentElement.style.removeProperty(e);
   }
-  function N(e, r, t) {
+  function clamp(e, r, t) {
     return Math.min(Math.max(e, Math.min(r, t)), Math.max(r, t));
   }
   useEffect(() => {
-    var n;
-    let i = (null === (n = t.current) || (n && n.offsetTop)) ?? 0;
-
+    let contentOffset =
+      contentOffsetter.current !== undefined
+        ? contentOffsetter.current.offsetTop
+        : 0;
     function l() {
       (function () {
         if (!headerRef.current) return;
-        let { top: e, height: t } = headerRef.current.getBoundingClientRect(),
-          n = N(
-            window.scrollY,
-            0,
-            document.body.scrollHeight - window.innerHeight
-          );
-        if (
-          (s.current && addProperty("--header-position", "sticky"),
-          addProperty("--content-offset", `${i}px`),
-          s.current || n < i)
-        )
-          addProperty("--header-height", `${i + t}px`),
-            addProperty("--header-mb", `${-i}px`);
-        else if (e + t < -64) {
+        let { top: e, height: t } = headerRef.current.getBoundingClientRect();
+        console.log(`header coordinates: top:${e}, height:${t}, diff:${e + t}`);
+        let n = clamp(
+          window.scrollY,
+          0,
+          document.body.scrollHeight - window.innerHeight
+        );
+        console.log(`n: ${n}, contentOffset: ${contentOffset}`);
+        if (s.current) {
+          addProperty("--header-position", "sticky");
+        }
+        addProperty("--content-offset", `${contentOffset}px`);
+        if (s.current || n < contentOffset) {
+          addProperty("--header-height", `${contentOffset + t}px`);
+          addProperty("--header-mb", `${-contentOffset}px`);
+        } else if (e + t < -64) {
           let e = Math.max(t, n - 64);
-          addProperty("--header-height", `${e}px`),
-            addProperty("--header-mb", `${t - e}px`);
-        } else
-          0 === e &&
-            (addProperty("--header-height", `${n + t}px`),
-            addProperty("--header-mb", `${-n}px`));
+          addProperty("--header-height", `${e}px`);
+          addProperty("--header-mb", `${t - e}px`);
+        } else if (e === 0) {
+          addProperty("--header-height", `${n + t}px`);
+          addProperty("--header-mb", `${-n}px`);
+        }
 
-        0 === e && n > 0 && n >= i
-          ? (addProperty("--header-inner-position", "fixed"),
-            removeProperty("--header-top"),
-            removeProperty("--avatar-top"))
-          : (removeProperty("--header-inner-position"),
-            addProperty("--header-top", "0px"),
-            addProperty("--avatar-top", "0px"));
-      })(),
-        (function () {
-          if (!isIndexPath) return;
-          let r = 36 / 64,
-            t = 2 / 16,
-            n = i - window.scrollY,
-            s = (n * (1 - r)) / i + r;
-          s = N(s, 1, r);
-          let o = (n * (0 - t)) / i + t;
-          addProperty(
-            "--avatar-image-transform",
-            `translate3d(${(o = N(o, 0, t))}rem, 0, 0) scale(${s})`
-          );
-          let l = 1 / (r / s);
-          addProperty(
-            "--avatar-border-transform",
-            `translate3d(${(-t + o) * l}rem, 0, 0) scale(${l})`
-          ),
-            addProperty("--avatar-border-opacity", s === r ? "1" : "0");
-        })(),
-        (s.current = !1);
+        if (e === 0 && n > 0 && n >= contentOffset) {
+          addProperty("--header-inner-position", "fixed");
+          removeProperty("--header-top");
+          removeProperty("--avatar-top");
+        } else {
+          removeProperty("--header-inner-position");
+          addProperty("--header-top", "0px");
+          addProperty("--avatar-top", "0px");
+        }
+      })();
+      (function () {
+        if (!isIndexPath) return;
+        let r = 36 / 64,
+          t = 2 / 16,
+          n = contentOffset - window.scrollY,
+          s = (n * (1 - r)) / contentOffset + r;
+        s = clamp(s, 1, r);
+        let o = (n * (0 - t)) / contentOffset + t;
+        addProperty(
+          "--avatar-image-transform",
+          `translate3d(${(o = clamp(o, 0, t))}rem, 0, 0) scale(${s})`
+        );
+        let l = 1 / (r / s);
+        addProperty(
+          "--avatar-border-transform",
+          `translate3d(${(-t + o) * l}rem, 0, 0) scale(${l})`
+        ),
+          addProperty("--avatar-border-opacity", s === r ? "1" : "0");
+      })();
+      s.current = !1;
     }
-    return (
-      l(),
-      window.addEventListener("scroll", l, {
-        passive: true
-      }),
-      window.addEventListener("resize", l),
-      () => {
-        window.removeEventListener("scroll", l),
-          window.removeEventListener("resize", l);
-      }
-    );
+    l();
+    window.addEventListener("scroll", l, {
+      passive: true
+    });
+    window.addEventListener("resize", l);
+    return () => {
+      window.removeEventListener("scroll", l),
+        window.removeEventListener("resize", l);
+    };
   }, [isIndexPath]);
   return (
     <header
@@ -102,7 +105,7 @@ export default function Header() {
       {isIndexPath && (
         <>
           <div
-            ref={t}
+            ref={contentOffsetter}
             className="order-last mt-[calc(theme(spacing.16)-theme(spacing.3))]"
           ></div>
           <div

@@ -79,22 +79,6 @@ export default function NavigationMenu() {
   return (
     <>
       <MDHiddenNavigationMenu />
-      <div
-        style={{
-          position: "fixed",
-          top: "1px",
-          left: "1px",
-          width: "1px",
-          height: "0",
-          padding: "0",
-          margin: "-1px",
-          overflow: "hidden",
-          clip: "rect(0, 0, 0, 0)",
-          whiteSpace: "nowrap",
-          borderWidth: "0",
-          display: "none"
-        }}
-      ></div>
       <nav className="pointer-events-auto hidden md:block">
         <ul className="flex rounded-full bg-white/90 px-3 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10">
           {menuItems.map((eachMenuItem, index) => {
