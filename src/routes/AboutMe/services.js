@@ -106,14 +106,20 @@ export const getEducationDetails = async function () {
     "",
     castToPayload(educationDetails, { user_id: CONSTANTS.USER_ID })
   );
-  return response.data.data.education_details.items;
+  return response.data.data.education_details.items.map(x => {
+    x.detailType = 'EDU'
+    return x
+  });
 };
 export const getExperienceDetails = async function () {
   const response = await authAxios.post(
     "",
     castToPayload(professionalExperiences, { user_id: CONSTANTS.USER_ID })
   );
-  return response.data.data.experience_details.items;
+  return response.data.data.experience_details.items.map(x => {
+    x.detailType = 'WORK'
+    return x
+  });
 };
 export default {
   getUserDetails,

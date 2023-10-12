@@ -4,7 +4,8 @@ import Experience from "./Experience";
 import "./index.css";
 import { AboutMeProvider } from "./AboutMeContext";
 import SocialMediaBar from "../../components/SocialMediaBar";
-import WorkDetails from "../../components/WorkDetails";
+import WorkDetails from "../../components/ProfessionalDetails";
+import ProfessionalDetails from "src/components/ProfessionalDetails";
 
 export default function AboutMe() {
   return (
@@ -48,7 +49,7 @@ export default function AboutMe() {
               <div className="mx-auto max-w-2xl lg:max-w-5xl">
                 <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
                   <div className="space-y-10 lg:pl-16 xl:pl-24">
-                    <WorkDetails></WorkDetails>
+                    <ProfessionalDetails></ProfessionalDetails>
                   </div>
                 </div>
               </div>
