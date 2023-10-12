@@ -44,7 +44,7 @@ export default function Header() {
                           transform: "var(--avatar-border-transform)"
                         }}
                       ></div>
-                      <ProfilePicture></ProfilePicture>
+                      <ProfilePicture size="large"></ProfilePicture>
                     </div>
                   </div>
                 </div>
@@ -68,18 +68,7 @@ export default function Header() {
                 <div className="relative flex gap-4">
                   <div className="flex flex-1">
                     {!isIndexPath && (
-                      <a
-                        aria-label="Home"
-                        className="pointer-events-auto"
-                        href="/"
-                      >
-                        <img
-                          src="/src/assets/profile-picture.png"
-                          alt="Raja Sekhar"
-                          className="rounded-full bg-zinc-100 object-cover dark:bg-zinc-800 h-9 w-9"
-                          style={{ color: "transparent;" }}
-                        />
-                      </a>
+                      <ProfilePicture size="medium"></ProfilePicture>
                     )}
                   </div>
                   <div className="flex flex-1 justify-end md:justify-center">

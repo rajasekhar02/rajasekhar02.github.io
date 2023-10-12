@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<svg viewBox="0 0 64 64" classname="h-16  w-16 fill-zinc-700 stroke-zinc-500 dark:fill-zinc-300 dark:stroke-zinc-200 "
+<svg viewBox="0 0 64 64" classname="fill-zinc-700 stroke-zinc-500 dark:fill-zinc-300 dark:stroke-zinc-200 "
   xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
   <defs>
     <bx:grid x="2" y="2" width="2" height="2" />

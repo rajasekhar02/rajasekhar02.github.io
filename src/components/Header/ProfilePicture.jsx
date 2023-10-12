@@ -2,19 +2,29 @@ import logo from "src/assets/profile-picture.png"; // Tell webpack this JS file 
 import ProfilePicPlaceholder from "src/assets/placeholder.svg?react";
 import { useAboutMe } from "../../routes/AboutMe/AboutMeContext";
 import get from "lodash.get";
-export default function ProfilePicture() {
+import PropTypes from "prop-types";
+ProfilePicture.propTypes = {
+  size: PropTypes.oneOf(["small", "medium", "large"])
+};
+
+export default function ProfilePicture({ size = "small" }) {
+  const sizeToCss = {
+    small: "h-4 w-4",
+    medium: "h-8 w-8",
+    large: "h-16 w-16"
+  };
   const aboutMeContext = useAboutMe();
   return (
     <a
       aria-label="Home"
-      className="block h-16 w-16 origin-left pointer-events-auto"
+      className={`block ${sizeToCss[size]} origin-left pointer-events-auto`}
       style={{ transform: "var(--avatar-image-transform)" }}
       href="/"
     >
       {aboutMeContext.userDetails ? (
         <img
           className="rounded-full bg-zinc-100 object-cover dark:bg-zinc-800 h-16 w-16"
-          src={logo}
+          src={get(aboutMeContext.userDetails, "profilePictureUrl.url") || logo}
           alt="profile picture"
         />
       ) : (
