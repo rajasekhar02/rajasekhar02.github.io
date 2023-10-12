@@ -1,20 +1,24 @@
 import logo from "src/assets/profile-picture.png"; // Tell webpack this JS file uses this image
-import { useAboutMe } from "./AboutMeContext";
+import { useAboutMe } from "../../routes/AboutMe/AboutMeContext";
 import get from "lodash.get";
 export default function ProfilePicture() {
   const aboutMeContext = useAboutMe();
   return (
-    <div className="image-mask profile-picture-holder">
+    <a
+      aria-label="Home"
+      className="block h-16 w-16 origin-left pointer-events-auto"
+      style={{ transform: "var(--avatar-image-transform)" }}
+      href="/"
+    >
       {aboutMeContext.userDetails ? (
         <img
-          src={get(aboutMeContext.userDetails, "profilePictureUrl.url") || logo}
-          className="img-fluid rounded"
-          alt="Profile Picture"
-          width="150"
+          className="rounded-full bg-zinc-100 object-cover dark:bg-zinc-800 h-16 w-16"
+          src={logo}
+          alt="profile picture"
         />
       ) : (
         <svg
-          className="bd-placeholder-img img-fluid rounded"
+          className="rounded-full bg-zinc-100 object-cover dark:bg-zinc-800 h-16 w-16"
           width="150"
           height="180"
           xmlns="http://www.w3.org/2000/svg"
@@ -27,6 +31,6 @@ export default function ProfilePicture() {
           <rect width="100%" height="100%" fill="#868e96"></rect>
         </svg>
       )}
-    </div>
+    </a>
   );
 }

@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import ProfilePicture from "./ProfilePicture";
+import ProfilePicture from "../../components/Header/ProfilePicture";
 import { getUserDetails } from "./services";
 import { useAboutMe } from "./AboutMeContext";
 import get from "lodash.get";
@@ -209,7 +209,7 @@ const renderSideNavPlaceholder = function () {
             "bi bi-envelope",
             "bi bi-github",
             "bi bi-linkedin"
-          ].map((iconName) => {
+          ].map(iconName => {
             return (
               <li className="list-group-item" key={iconName}>
                 <i className={iconName}>
