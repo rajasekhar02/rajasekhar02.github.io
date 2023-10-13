@@ -62,6 +62,9 @@ query EducationDetails($user_id: String!) {
       startDate
       endDate
       educationSlug
+      imageUrl{
+        url
+      }
       coursesEnrolledCollection{
         items {
         	title,
@@ -87,6 +90,9 @@ query ExperienceDetails($user_id: String!) {
       startDate
       endDate
       experienceSlug
+      imageUrl{
+        url
+      }
       jobDescription {
         json
       }

@@ -4,12 +4,12 @@ import {
   getExperienceDetails
 } from "../../routes/AboutMe/services";
 import PropTypes from "prop-types";
+import { format as formatDate, formatDuration } from "date-fns";
+import get from "lodash.get";
+
 let EducationItem = function ({ details }) {
   return (
     <li className="flex gap-4">
-      {
-        // [...educationDetails,...experienceDetails].sort((a,b)=> )
-      }
       <div className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
         <img
           alt=""
@@ -20,25 +20,33 @@ let EducationItem = function ({ details }) {
           data-nimg="1"
           className="h-7 w-7"
           style={{ color: "transparent" }}
-          src={details.imageURL}
+          src={details.imageUrl.url}
         />
       </div>
       <dl className="flex flex-auto flex-wrap gap-x-2">
-        <dt className="sr-only">Company</dt>
+        <dt className="sr-only">University</dt>
         <dd className="w-full flex-none text-sm font-medium text-zinc-900 dark:text-zinc-100">
-          Eruvaka Technologies Private Ltd
+          {details.specialization}
         </dd>
         <dt className="sr-only">Role</dt>
         <dd className="text-xs text-zinc-500 dark:text-zinc-400">
-          Software Developer
+          {<a href={details.universityLink}>{details.universityName}</a>}
         </dd>
         <dt className="sr-only">Date</dt>
-        <dd
-          className="ml-auto text-xs text-zinc-400 dark:text-zinc-500"
-          aria-label="2019 until Present"
-        >
-          <time dateTime="2019">2019</time> <span aria-hidden="true">—</span>{" "}
-          <time dateTime="2022">2022</time>
+        <dd className="ml-auto text-xs text-zinc-400 dark:text-zinc-500">
+          <time dateTime={details.startDate}>
+            {formatDate(
+              new Date(get(details, "startDate", new Date())),
+              "MMM yyyy"
+            )}
+          </time>{" "}
+          <span aria-hidden="true">—</span>
+          <time dateTime={details.endDate}>
+            {formatDate(
+              new Date(get(details, "endDate", new Date())),
+              "MMM yyyy"
+            )}
+          </time>
         </dd>
       </dl>
     </li>
@@ -52,18 +60,15 @@ EducationItem.propTypes = {
     startDate: PropTypes.string,
     endDate: PropTypes.string,
     specialization: PropTypes.string,
-    educationSlug: PropTypes.object,
+    educationSlug: PropTypes.string,
     detailType: PropTypes.oneOf(["EDU", "WORK"]),
-    imageURL: PropTypes.string
+    imageUrl: PropTypes.shape({ url: PropTypes.string })
   })
 };
 
-let WorkItem = function () {
+let WorkItem = function ({ details }) {
   return (
     <li className="flex gap-4">
-      {
-        // [...educationDetails,...experienceDetails].sort((a,b)=> )
-      }
       <div className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
         <img
           alt=""
@@ -74,30 +79,53 @@ let WorkItem = function () {
           data-nimg="1"
           className="h-7 w-7"
           style={{ color: "transparent" }}
-          src="data:image/jpeg;base64,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"
+          src={details.imageUrl.url}
         />
       </div>
       <dl className="flex flex-auto flex-wrap gap-x-2">
-        <dt className="sr-only">Company</dt>
+        <dt className="sr-only">University</dt>
         <dd className="w-full flex-none text-sm font-medium text-zinc-900 dark:text-zinc-100">
-          Eruvaka Technologies Private Ltd
+          {details.role}
         </dd>
         <dt className="sr-only">Role</dt>
         <dd className="text-xs text-zinc-500 dark:text-zinc-400">
-          Software Developer
+          {<a href={details.companyLink}>{details.companyName}</a>}
         </dd>
         <dt className="sr-only">Date</dt>
-        <dd
-          className="ml-auto text-xs text-zinc-400 dark:text-zinc-500"
-          aria-label="2019 until Present"
-        >
-          <time dateTime="2019">2019</time> <span aria-hidden="true">—</span>{" "}
-          <time dateTime="2022">2022</time>
+        <dd className="ml-auto text-xs text-zinc-400 dark:text-zinc-500">
+          <time dateTime={details.startDate}>
+            {formatDate(
+              new Date(get(details, "startDate", new Date())),
+              "MMM yyyy"
+            )}
+          </time>{" "}
+          <span aria-hidden="true">—</span>
+          <time dateTime={details.endDate}>
+            {formatDate(
+              new Date(get(details, "endDate", new Date())),
+              "MMM yyyy"
+            )}
+          </time>
         </dd>
       </dl>
     </li>
   );
 };
+
+WorkItem.propTypes = {
+  details: PropTypes.shape({
+    companyName: PropTypes.string,
+    companyLink: PropTypes.string,
+    role: PropTypes.string,
+    technologiesUsed: PropTypes.string,
+    isCurrent: PropTypes.bool,
+    startDate: PropTypes.string,
+    endDate: PropTypes.string,
+    experienceSlug: PropTypes.string,
+    imageUrl: PropTypes.shape({ url: PropTypes.string })
+  })
+};
+
 const DownloadResumeButton = function () {
   return (
     <a
@@ -153,7 +181,9 @@ export default function ProfessionalDetails() {
       const educationPromise = getEducationDetails();
       const experiencePromise = getExperienceDetails();
       Promise.all([educationPromise, experiencePromise]).then(data => {
-        setAllDetails(() => data.flat(1).sort((a, b) => b.endDate - a.endDate));
+        setAllDetails(() =>
+          data.flat(1).sort((a, b) => new Date(b.endDate) - new Date(a.endDate))
+        );
       });
     })();
   }, []);
@@ -182,10 +212,22 @@ export default function ProfessionalDetails() {
         <span className="ml-3">Education and Work</span>
       </h2>
       <ol className="mt-6 space-y-4">
-        {allDetails.map(item => {
+        {allDetails.map((item, index) => {
           switch (item.detailType) {
             case "EDU":
-              return <EducationItem details={item}></EducationItem>;
+              return (
+                <EducationItem
+                  details={item}
+                  key={`professional-details-${index}`}
+                ></EducationItem>
+              );
+            case "WORK":
+              return (
+                <WorkItem
+                  key={`professional-details-${index}`}
+                  details={item}
+                ></WorkItem>
+              );
           }
         })}
       </ol>
