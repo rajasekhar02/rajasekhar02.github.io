@@ -4,6 +4,8 @@ import Twitter from "src/assets/twitter.svg?react";
 import Linkedin from "src/assets/linkedin.svg?react";
 import Email from "src/assets/email.svg?react";
 import Mobile from "src/assets/mobile.svg?react";
+import Mappin from "src/assets/map-pin.svg?react";
+
 import { useEffect } from "react";
 import { getUserDetails } from "../../routes/AboutMe/services";
 import { useAboutMe } from "../../routes/AboutMe/AboutMeContext";
@@ -55,6 +57,13 @@ export default function SocialMediaBar() {
       url: `mailto:${getPropertiesFromUserDetails("contactDetails.email")}`,
       ariaLabel: "Connect me through Gmail",
       icon: <Email />
+    },
+    {
+      url: getPropertiesFromUserDetails(
+        "contactDetails.houseAddress.googleMapsLink"
+      ),
+      ariaLabel: "Available at Address",
+      icon: <Mappin />
     }
   ];
 
