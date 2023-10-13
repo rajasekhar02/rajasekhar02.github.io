@@ -13,6 +13,7 @@ import Projects from "./routes/Projects/index";
 import ProjectGrids from "./routes/Projects/ProjectGrids";
 import NoMatch from "./routes/NoMatch";
 import React from "react";
+import { AboutMeProvider } from "./routes/AboutMe/AboutMeContext";
 
 const rootElement = document.getElementById("root");
 const root = createRoot(rootElement);
@@ -48,6 +49,8 @@ const router = createBrowserRouter(
 );
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AboutMeProvider>
+      <RouterProvider router={router} />
+    </AboutMeProvider>
   </React.StrictMode>
 );

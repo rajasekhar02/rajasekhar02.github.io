@@ -6,8 +6,6 @@ import Email from "src/assets/email.svg?react";
 import Mobile from "src/assets/mobile.svg?react";
 import Mappin from "src/assets/map-pin.svg?react";
 
-import { useEffect } from "react";
-import { getUserDetails } from "../../routes/AboutMe/services";
 import { useAboutMe } from "../../routes/AboutMe/AboutMeContext";
 import get from "lodash.get";
 export default function SocialMediaBar() {
@@ -18,13 +16,7 @@ export default function SocialMediaBar() {
   ) {
     return get(aboutMeContext.userDetails, path, defaultValue);
   };
-  useEffect(() => {
-    (async () => {
-      const response = await getUserDetails();
-      aboutMeContext.setUserDetails(response);
-      console.log(response);
-    })();
-  }, []);
+
   // TODO: Migrate the social media urls to a Database or Contentful
   const metaData = [
     {
@@ -46,25 +38,25 @@ export default function SocialMediaBar() {
       ariaLabel: "Follow on Twitter",
       icon: <Twitter />
     },
-    {
-      url: `tel:+${getPropertiesFromUserDetails(
-        "contactDetails.phoneNumber.number"
-      )}`,
-      ariaLabel: "Get in Touch",
-      icon: <Mobile />
-    },
+    // {
+    //   url: `tel:+${getPropertiesFromUserDetails(
+    //     "contactDetails.phoneNumber.number"
+    //   )}`,
+    //   ariaLabel: "Get in Touch",
+    //   icon: <Mobile />
+    // },
     {
       url: `mailto:${getPropertiesFromUserDetails("contactDetails.email")}`,
       ariaLabel: "Connect me through Gmail",
       icon: <Email />
-    },
-    {
-      url: getPropertiesFromUserDetails(
-        "contactDetails.houseAddress.googleMapsLink"
-      ),
-      ariaLabel: "Available at Address",
-      icon: <Mappin />
     }
+    // {
+    //   url: getPropertiesFromUserDetails(
+    //     "contactDetails.houseAddress.googleMapsLink"
+    //   ),
+    //   ariaLabel: "Available at Address",
+    //   icon: <Mappin />
+    // }
   ];
 
   return (

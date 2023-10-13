@@ -23,7 +23,7 @@ export default function ProfilePicture({ size = "small" }) {
     >
       {aboutMeContext.userDetails ? (
         <img
-          className="rounded-full bg-zinc-100 object-cover dark:bg-zinc-800 h-16 w-16"
+          className={`rounded-full bg-zinc-100 object-cover dark:bg-zinc-800 ${sizeToCss[size]}`}
           src={get(aboutMeContext.userDetails, "profilePictureUrl.url") || logo}
           alt="profile picture"
         />
