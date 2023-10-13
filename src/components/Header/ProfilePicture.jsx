@@ -3,6 +3,7 @@ import ProfilePicPlaceholder from "src/assets/placeholder.svg?react";
 import { useAboutMe } from "../../routes/AboutMe/AboutMeContext";
 import get from "lodash.get";
 import PropTypes from "prop-types";
+import { NavLink } from "react-router-dom";
 ProfilePicture.propTypes = {
   size: PropTypes.oneOf(["small", "medium", "large"])
 };
@@ -15,11 +16,11 @@ export default function ProfilePicture({ size = "small" }) {
   };
   const aboutMeContext = useAboutMe();
   return (
-    <a
+    <NavLink
       aria-label="Home"
       className={`block ${sizeToCss[size]} origin-left pointer-events-auto`}
       style={{ transform: "var(--avatar-image-transform)" }}
-      href="/"
+      to="/"
     >
       {aboutMeContext.userDetails ? (
         <img
@@ -30,6 +31,6 @@ export default function ProfilePicture({ size = "small" }) {
       ) : (
         <ProfilePicPlaceholder></ProfilePicPlaceholder>
       )}
-    </a>
+    </NavLink>
   );
 }
