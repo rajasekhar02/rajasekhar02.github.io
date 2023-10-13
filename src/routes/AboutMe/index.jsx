@@ -1,10 +1,6 @@
 import SideBar from "./SideBar";
-import Education from "./Education";
-import Experience from "./Experience";
-import "./index.css";
 import { AboutMeProvider } from "./AboutMeContext";
 import SocialMediaBar from "../../components/SocialMediaBar";
-import WorkDetails from "../../components/ProfessionalDetails";
 import ProfessionalDetails from "src/components/ProfessionalDetails";
 
 export default function AboutMe() {
