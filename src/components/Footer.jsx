@@ -1,4 +1,5 @@
 import { useRouteLoaderData } from "react-router";
+import { NavLink } from "react-router-dom";
 
 export default function Footer() {
   const menuItems = useRouteLoaderData("menuItems");
@@ -13,18 +14,18 @@ export default function Footer() {
                   <div className="flex flex-wrap justify-center gap-x-6 gap-y-1 text-sm font-medium text-zinc-800 dark:text-zinc-200">
                     {menuItems.map((item, index) => {
                       return (
-                        <a
+                        <NavLink
                           key={`footer-menu-${index}`}
                           className="transition hover:text-teal-500 dark:hover:text-teal-400"
-                          href={item.path}
+                          to={item.path}
                         >
                           {item.name}
-                        </a>
+                        </NavLink>
                       );
                     })}
                   </div>
                   <p className="text-sm text-zinc-400 dark:text-zinc-500">
-                    © 2023 Raja Sekhar. Inspiration from{" "}
+                    © {new Date().getFullYear()} Raja Sekhar. Inspiration from{" "}
                     <a href="https://spotlight.tailwindui.com/">
                       TailwindCSS Template
                     </a>

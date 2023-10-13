@@ -1,6 +1,7 @@
 import { Popover } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { useLocation, useRouteLoaderData } from "react-router";
+import { NavLink } from "react-router-dom";
 
 const MDHiddenNavigationMenu = function () {
   const menuItems = useRouteLoaderData("menuItems");
@@ -50,13 +51,13 @@ const MDHiddenNavigationMenu = function () {
                   {menuItems.map((item, index) => {
                     return (
                       <li key={`menu-md-hidden-${index}`}>
-                        <a
+                        <NavLink
                           className="block py-2"
                           data-headlessui-state="open"
-                          href={item.url}
+                          to={item.url}
                         >
                           {item.name}
-                        </a>
+                        </NavLink>
                       </li>
                     );
                   })}
@@ -84,18 +85,18 @@ export default function NavigationMenu() {
           {menuItems.map((eachMenuItem, index) => {
             return (
               <li key={`menu-item-${index}`}>
-                <a
+                <NavLink
                   className={`relative block px-3 py-2 transition ${
                     isVisitedPath(eachMenuItem.path) &&
                     `text-teal-500 dark:text-teal-400`
                   } hover:text-teal-500 dark:hover:text-teal-400`}
-                  href={eachMenuItem.path}
+                  to={eachMenuItem.path}
                 >
                   {eachMenuItem.name}
                   {isVisitedPath(eachMenuItem.path) && (
                     <span className="absolute inset-x-1 -bottom-px h-px bg-gradient-to-r from-teal-500/0 via-teal-500/40 to-teal-500/0 dark:from-teal-400/0 dark:via-teal-400/40 dark:to-teal-400/0"></span>
                   )}
-                </a>
+                </NavLink>
               </li>
             );
           })}
