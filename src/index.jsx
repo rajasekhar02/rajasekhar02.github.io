@@ -10,7 +10,7 @@ import App from "./App";
 import AboutMe from "./routes/AboutMe/index";
 import LearningReferences from "./routes/LearningReferences";
 import Projects from "./routes/Projects/index";
-import ProjectGrids from "./routes/Projects/ProjectGrids";
+import MainLayout from "./routes/Projects/MainLayout";
 import NoMatch from "./routes/NoMatch";
 import React from "react";
 import { AboutMeProvider } from "./routes/AboutMe/AboutMeContext";
@@ -37,7 +37,8 @@ const router = createBrowserRouter(
       <Route path="articles" element={<NoMatch></NoMatch>}></Route>
       <Route path="uses" element={<NoMatch></NoMatch>}></Route>
       <Route path="projects" element={<Projects />}>
-        <Route index element={<ProjectGrids />}></Route>
+        <Route index element={<MainLayout />}></Route>
+
       </Route>
       <Route
         path="learning-references"
