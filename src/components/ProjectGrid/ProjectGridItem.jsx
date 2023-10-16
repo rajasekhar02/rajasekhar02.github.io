@@ -1,25 +1,65 @@
 import PropTypes from "prop-types";
-import { NavLink } from "react-router-dom";
 
 export default function ProjectGridItem({ details }) {
   return (
-    <li className="group relative flex flex-col items-start">      
-    <a href="#" class="flex md:flex-col items-center bg-white border border-gray-200 rounded-lg shadow flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-        <img class="object-cover w-full rounded-t-lg h-48 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" src="/docs/images/blog/image-4.jpg" alt="" />
-        <div class="flex flex-col justify-between p-4 leading-normal">
-            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions 2021</h5>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
+    <li className="col-span-1 rounded-lg bg-white/100  shadow divide-y divide-gray-200 dark:bg-slate-800 dark:divide-gray-600">
+      <div className="flex w-full items-center justify-between p-6 space-x-6">
+        <div className="flex-1 overflow-hidden whitespace-nowrap text-ellipsis">
+          <div className="flex items-center">
+            <h2 className="overflow-hidden whitespace-nowrap text-ellipsis font-medium text-gray-900 dark:text-slate-200">
+              {"name"}
+            </h2>
+            {/* <span className="ly up yz ads ajh arb aro awc awe axz bbt bbx bcs">
+              Admin
+            </span> */}
+          </div>
+          <p className="mt-1 overflow-hidden whitespace-nowrap text-ellipsis text-sm text-gray-500 dark:text-slate-400">
+            {
+              "descripdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdfasdfasdfdddddddddddddddddddddddddddddddddtion"
+            }
+          </p>
+          <p className="mt-1 overflow-hidden whitespace-nowrap text-ellipsis text-sm text-gray-500 dark:text-slate-400">
+            {
+              "notable technolasdfasdfasdfasdfasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddogies"
+            }
+          </p>
         </div>
-    </a>
+        {/* <img
+          className="h-10 w-10 flex-shrink-0 rounded-full bg-gray-300"
+          src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=4&amp;w=256&amp;h=256&amp;q=60"
+          alt=""
+        /> */}
+      </div>
+      <div>
+        <div className="flex -mt-px divide-x divide-gray-200 dark:divide-gray-600 ">
+          <div className="flex w-0 flex-1 ">
+            <a
+              href="mailto:janecooper@example.com"
+              className="relative -mr-px inline-flex w-0 flex-1 items-center justify-center gap-x-3 rounded-bl-lg border border-transparent pt-4 pb-4 text-sm font-medium text-gray-900 dark:text-slate-200"
+            >
+              Github
+            </a>
+          </div>
+          <div className="flex -ml-px w-0 flex-1">
+            <a
+              href="tel:+1-202-555-0170"
+              className="relative inline-flex w-0 flex-1 items-center justify-center gap-x-3 rounded-br-lg border border-transparent pt-4 pb-4 text-sm font-medium text-gray-900 dark:text-slate-200"
+            >
+              Live Demo
+            </a>
+          </div>
+        </div>
+      </div>
     </li>
   );
 }
 
 ProjectGridItem.propTypes = {
   details: PropTypes.shape({
-    name: PropTypes.string,
+    name: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
     github_link: PropTypes.string,
-    description: PropTypes.string,
     image_url: PropTypes.string,
-  }),
+    live_demo_link: PropTypes.string
+  })
 };
