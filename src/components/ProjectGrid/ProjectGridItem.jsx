@@ -13,11 +13,11 @@ export default function ProjectGridItem({ details }) {
               Admin
             </span> */}
           </div>
-          <p className="line-clamp-3 mt-4 text-sm leading-6 text-zinc-500 dark:text-zinc-400">
+          <p className="line-clamp-3 mt-1 text-sm leading-6 text-zinc-500 dark:text-zinc-400">
             <strong>Description</strong> <br />
             {details.description}
           </p>
-          <p className="mt-4 overflow-hidden whitespace-nowrap text-ellipsis text-sm text-zinc-500 dark:text-zinc-400">
+          <p className="mt-1 overflow-hidden whitespace-nowrap text-ellipsis text-sm text-zinc-500 dark:text-zinc-400">
             <strong>Technologies</strong>
             <br />
             <div className="mt-1">

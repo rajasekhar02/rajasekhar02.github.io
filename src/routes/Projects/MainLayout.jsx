@@ -1,15 +1,27 @@
 import ProjectGridItem from "../../components/ProjectGrid/ProjectGridItem";
 
 export default function MainLayout() {
+  function makeid(length) {
+    let result = "";
+    const characters =
+      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789 ";
+    const charactersLength = characters.length;
+    let counter = 0;
+    while (counter < length) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+      counter += 1;
+    }
+    return result;
+  }
   const projects = [
-    {
+    ...new Array(10).fill(0).map((x, index) => ({
       name: "CPP-Practice",
       github_link: "https://github.com/rajasekhar02/CPP-Practice",
-      description: "C++ Code I written",
+      description: makeid(index * 100),
       live_demo_link: "https://github.com/rajasekhar02/CPP-Practice",
       // image_url: undefined
       technologies_used: ["C++", "java", "spring"]
-    }
+    }))
   ];
   return (
     <div className="mx-auto max-w-2xl lg:max-w-5xl">
