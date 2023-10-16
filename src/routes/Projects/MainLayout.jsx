@@ -6,8 +6,9 @@ export default function MainLayout() {
       name: "CPP-Practice",
       github_link: "https://github.com/rajasekhar02/CPP-Practice",
       description: "C++ Code I written",
-      live_demo_link: "https://github.com/rajasekhar02/CPP-Practice"
+      live_demo_link: "https://github.com/rajasekhar02/CPP-Practice",
       // image_url: undefined
+      technologies_used: ["C++", "java", "spring"]
     }
   ];
   return (
