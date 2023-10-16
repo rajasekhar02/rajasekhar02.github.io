@@ -110,12 +110,12 @@ const useScrollEffects = function () {
   let location = useLocation();
   let isIndexPath = "/" === location.pathname;
   let headerRef = useRef(null);
-  let contentOffsetRef = useRef(undefined);
+  let contentOffsetRef = useRef(null);
   let isHeaderVisible = useRef(true);
   useLayoutEffect(() => {
     let contentOffset =
-      contentOffsetRef.current !== undefined
-        ? contentOffsetRef.current.offsetTop
+      contentOffsetRef.current !== null
+        ? (contentOffsetRef.current != undefined && contentOffsetRef.current.offsetTop)
         : 0;
     console.log(contentOffset);
     function handleHeaderScrollEffects() {

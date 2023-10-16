@@ -51,13 +51,13 @@ const MDHiddenNavigationMenu = function () {
                   {menuItems.map((item, index) => {
                     return (
                       <li key={`menu-md-hidden-${index}`}>
-                        <NavLink
+                        <Popover.Button as={NavLink}
                           className="block py-2"
                           data-headlessui-state="open"
-                          to={item.url}
+                          to={item.path}
                         >
                           {item.name}
-                        </NavLink>
+                        </Popover.Button>
                       </li>
                     );
                   })}
