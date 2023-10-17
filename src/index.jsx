@@ -12,8 +12,8 @@ import LearningReferences from "./routes/LearningReferences";
 import Projects from "./routes/Projects/index";
 import MainLayout from "./routes/Projects/MainLayout";
 import NoMatch from "./routes/NoMatch";
-import React from "react";
 import { AboutMeProvider } from "./routes/AboutMe/AboutMeContext";
+import Readings from "./routes/Readings";
 
 const rootElement = document.getElementById("root");
 const root = createRoot(rootElement);
@@ -25,7 +25,7 @@ const router = createBrowserRouter(
       id="menuItems"
       loader={() => [
         { name: "About", path: "/about" },
-        { name: "Articles", path: "/articles" },
+        { name: "Readings", path: "/readings" },
         { name: "Projects", path: "/projects" },
         { name: "Uses", path: "/uses" }
       ]}
@@ -34,11 +34,12 @@ const router = createBrowserRouter(
       <Route path="about" element={<AboutMe />}>
         <Route path=":string_slug" element={<AboutMe />} />
       </Route>
-      <Route path="articles" element={<NoMatch></NoMatch>}></Route>
+      <Route path="readings" element={<Readings></Readings>}>
+        <Route index element={<MainLayout />}></Route>
+      </Route>
       <Route path="uses" element={<NoMatch></NoMatch>}></Route>
       <Route path="projects" element={<Projects />}>
         <Route index element={<MainLayout />}></Route>
-
       </Route>
       <Route
         path="learning-references"

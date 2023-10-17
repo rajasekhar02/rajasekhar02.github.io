@@ -19,7 +19,6 @@ export default function MainLayout() {
       github_link: "https://github.com/rajasekhar02/CPP-Practice",
       description: makeid(index * 100),
       live_demo_link: "https://github.com/rajasekhar02/CPP-Practice",
-      // image_url: undefined
       technologies_used: ["C++", "java", "spring"]
     }))
   ];
