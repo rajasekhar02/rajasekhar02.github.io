@@ -5,7 +5,7 @@ import Footer from "./components/Footer";
 import Header from "./components/Header";
 import { useEffect } from "react";
 import { useAboutMe } from "./routes/AboutMe/AboutMeContext";
-import { getUserDetails } from "./routes/AboutMe/services";
+import { getUserDetails } from "src/services/contentful";
 
 export default function App() {
   const aboutMeContext = useAboutMe();

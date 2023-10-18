@@ -1,5 +1,9 @@
 import axios from 'axios';
-import CONSTANTS from './constants.json';
+const CONSTANTS = {
+  SPACE_ID: import.meta.env.VITE_SPACE_ID,
+  ENVIRONMENT: import.meta.env.VITE_ENVIRONMENT,
+  CONTENT_DELIVERY_SECRET: import.meta.env.VITE_CONTENT_DELIVERY_SECRET
+}
 // import localStore from 'src/utils/localStore.js';
 // Set config defaults when creating the instance
 export const authAxios = axios.create({

@@ -1,6 +1,6 @@
 import ProjectGridItem from "../../components/ProjectGrid/ProjectGridItem";
 
-export default function MainLayout() {
+export default function Home() {
   function makeid(length) {
     let result = "";
     const characters =

@@ -1,5 +1,8 @@
-import { authAxios } from "./axiosConfig";
-import CONSTANTS from "./constants.json";
+import { authAxios } from "../config/axiosConfig";
+
+const CONSTANTS = {
+  USER_ID: import.meta.env.VITE_USER_ID
+}
 // authentication needed apis
 const castToPayload = function (graphqlQuery, variables = {}) {
   return {

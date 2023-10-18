@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import {
   getEducationDetails,
   getExperienceDetails
-} from "../../routes/AboutMe/services";
+} from "src/services/contentful";
 import EducationItem from "./EducationItem";
 import WorkItem from "./WorkItem";
 import DownloadResumeButton from "./DownloadResumeButton";

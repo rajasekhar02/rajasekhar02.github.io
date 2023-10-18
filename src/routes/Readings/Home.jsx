@@ -1,4 +1,16 @@
-export default function MainLayout() {
+import { Client } from "@notionhq/client";
+import { useEffect } from "react";
+
+export default function Home() {
+  useEffect(() => {
+    const notion = new Client({
+      auth: import.meta.env.VITE_NOTION_TOKEN
+    });
+    (async () => {
+      const listUsersResponse = await notion.users.list({});
+      console.log(listUsersResponse);
+    })();
+  }, []);
   return (
     <>
       <div className="mx-auto max-w-2xl lg:max-w-5xl">
@@ -28,7 +40,7 @@ export default function MainLayout() {
                   </h2>
                   <time
                     className="md:hidden relative z-10 order-first mb-3 flex items-center text-sm text-zinc-400 dark:text-zinc-500 pl-3.5"
-                    datetime="2022-09-05"
+                    dateTime="2022-09-05"
                   >
                     <span
                       className="absolute inset-y-0 left-0 flex items-center"
@@ -57,16 +69,16 @@ export default function MainLayout() {
                     >
                       <path
                         d="M6.75 5.75 9.25 8l-2.5 2.25"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                       ></path>
                     </svg>
                   </div>
                 </div>
                 <time
-                  className="mt-1 hidden md:block relative z-10 order-first mb-3 flex items-center text-sm text-zinc-400 dark:text-zinc-500"
-                  datetime="2022-09-05"
+                  className="mt-1 sm:hidden md:block relative z-10 order-first mb-3 flex items-center text-sm text-zinc-400 dark:text-zinc-500"
+                  dateTime="2022-09-05"
                 >
                   September 5, 2022
                 </time>
