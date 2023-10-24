@@ -40,16 +40,23 @@ async function respondToGetReadingsInLast10Days(req, res) {
     try {
         const response = await notion.databases.query({
             database_id: databaseId,
+            page_size: 10,
+            sorts: [
+                {
+                    "property": "Created",
+                    "direction": "descending"
+                }
+            ],
             filter: {
                 "and": [
-                    {
-                        property: "Created",
-                        date: {
-                            after: format(sub(new Date(), {
-                                days: 20
-                            }), "yyyy-MM-dd")
-                        }
-                    },
+                    // {
+                    //   property: "Created",
+                    //   date: {
+                    //     after: format(sub(new Date(), {
+                    //       days: 20
+                    //     }), "yyyy-MM-dd")
+                    //   }
+                    // },
                     {
                         property: "resource type",
                         multi_select: {
