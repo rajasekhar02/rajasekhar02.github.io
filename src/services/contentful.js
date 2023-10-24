@@ -55,7 +55,7 @@ query ContactDetails($user_id: String!){
     }
 }
 `;
-const educationDetails = `
+const educationDetailsQuery = `
 query EducationDetails($user_id: String!) {
   education_details: educationCollection(where: {user: {sys: {id: $user_id}}},order: [startDate_DESC]) {
     items {
@@ -81,7 +81,7 @@ query EducationDetails($user_id: String!) {
   }
 }
 `;
-const professionalExperiences = `
+const professionalExperiencesQuery = `
 query ExperienceDetails($user_id: String!) {
   experience_details: professionalExperienceCollection(where: {user: {sys: {id: $user_id}}}, order: [startDate_DESC]) {
     items {
@@ -103,6 +103,23 @@ query ExperienceDetails($user_id: String!) {
   }
 }
 `;
+
+const personalProjectsQuery = `
+query PersonalProjects($user_id: String!) {
+  personal_projects: personalProjectCollection(where:{user:{sys:{id: $user_id}}}, limit:10, order: [endDate_DESC]){
+    items{
+      name,
+      description,
+      technologies,
+      startDate,
+      endDate,
+      githubUrl,
+      liveDemoLink
+    }
+  }
+}
+`;
+
 export const getUserDetails = async function () {
   const response = await authAxios.post(
     "",
@@ -113,7 +130,7 @@ export const getUserDetails = async function () {
 export const getEducationDetails = async function () {
   const response = await authAxios.post(
     "",
-    castToPayload(educationDetails, { user_id: CONSTANTS.USER_ID })
+    castToPayload(educationDetailsQuery, { user_id: CONSTANTS.USER_ID })
   );
   return response.data.data.education_details.items.map(x => {
     x.detailType = 'EDU'
@@ -123,14 +140,24 @@ export const getEducationDetails = async function () {
 export const getExperienceDetails = async function () {
   const response = await authAxios.post(
     "",
-    castToPayload(professionalExperiences, { user_id: CONSTANTS.USER_ID })
+    castToPayload(professionalExperiencesQuery, { user_id: CONSTANTS.USER_ID })
   );
   return response.data.data.experience_details.items.map(x => {
     x.detailType = 'WORK'
     return x
   });
 };
+
+export const getPersonalProjects = async function () {
+  const response = await authAxios.post(
+    "",
+    castToPayload(personalProjectsQuery, { user_id: CONSTANTS.USER_ID })
+  );
+  console.log(response)
+  return response.data.data.personal_projects.items;
+};
 export default {
   getUserDetails,
-  getEducationDetails
+  getEducationDetails,
+  getPersonalProjects
 };

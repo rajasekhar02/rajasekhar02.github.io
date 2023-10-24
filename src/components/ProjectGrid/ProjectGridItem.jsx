@@ -21,7 +21,7 @@ export default function ProjectGridItem({ details }) {
             <strong>Technologies</strong>
             <br />
             <div className="mt-1">
-              {details.technologies_used.map((item, index) => {
+              {details.technologies.map((item, index) => {
                 return (
                   <span
                     key={`technologies-used-${index}`}
@@ -44,13 +44,13 @@ export default function ProjectGridItem({ details }) {
         <div className="flex -mt-px divide-x divide-gray-200 dark:divide-slate-700 ">
           <div className="flex w-0 flex-1 ">
             <a
-              href={details.github_link}
+              href={details.githubUrl}
               className="relative -mr-px inline-flex w-0 flex-1 items-center justify-center gap-x-3 rounded-bl-lg border border-transparent pt-4 pb-4 text-sm font-medium text-gray-900 dark:text-slate-200"
             >
               Github
             </a>
           </div>
-          {details.live_preview_url && (
+          {details.liveDemoLink && (
             <div className="flex -ml-px w-0 flex-1">
               <a
                 href="tel:+1-202-555-0170"
@@ -70,9 +70,11 @@ ProjectGridItem.propTypes = {
   details: PropTypes.shape({
     name: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
-    technologies_used: PropTypes.array.isRequired,
-    github_link: PropTypes.string,
-    image_url: PropTypes.string,
-    live_preview_url: PropTypes.string
+    technologies: PropTypes.array.isRequired,
+    githubUrl: PropTypes.string,
+    imageUrl: PropTypes.string,
+    liveDemoLink: PropTypes.string,
+    startDate: PropTypes.string,
+    endDate: PropTypes.string
   })
 };

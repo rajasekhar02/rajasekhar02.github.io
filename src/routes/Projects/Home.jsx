@@ -1,27 +1,17 @@
+import { useEffect, useState } from "react";
 import ProjectGridItem from "../../components/ProjectGrid/ProjectGridItem";
+import { getPersonalProjects } from "../../services/contentful";
 
 export default function Home() {
-  function makeid(length) {
-    let result = "";
-    const characters =
-      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789 ";
-    const charactersLength = characters.length;
-    let counter = 0;
-    while (counter < length) {
-      result += characters.charAt(Math.floor(Math.random() * charactersLength));
-      counter += 1;
-    }
-    return result;
-  }
-  const projects = [
-    ...new Array(10).fill(0).map((x, index) => ({
-      name: "CPP-Practice",
-      github_link: "https://github.com/rajasekhar02/CPP-Practice",
-      description: makeid(index * 100),
-      live_demo_link: "https://github.com/rajasekhar02/CPP-Practice",
-      technologies_used: ["C++", "java", "spring"]
-    }))
-  ];
+  const [projects, setProjects] = useState([]);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    (async function () {
+      const response = await getPersonalProjects();
+      setProjects(() => response || []);
+      setLoading(() => false);
+    })();
+  }, []);
   return (
     <div className="mx-auto max-w-2xl lg:max-w-5xl">
       <header className="max-w-2xl">
@@ -40,14 +30,24 @@ export default function Home() {
           role="list"
           className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
         >
-          {projects.map((project, index) => {
-            return (
-              <ProjectGridItem
-                key={`project_item_${index}`}
-                details={project}
-              ></ProjectGridItem>
-            );
-          })}
+          {loading ? (
+            <div className="px-3 py-1 text-sm font-medium leading-none text-center text-zinc-800 rounded-full animate-pulse dark:text-zinc-100">
+              Loading...
+            </div>
+          ) : projects.length == 0 ? (
+            <div className="px-3 py-1 text-sm font-medium leading-none text-center text-zinc-800 rounded-full dark:text-zinc-100">
+              No Activity
+            </div>
+          ) : (
+            projects.map((project, index) => {
+              return (
+                <ProjectGridItem
+                  key={`project_item_${index}`}
+                  details={project}
+                ></ProjectGridItem>
+              );
+            })
+          )}
         </ul>
       </div>
     </div>
