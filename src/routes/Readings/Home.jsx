@@ -5,11 +5,13 @@ import { format } from "date-fns";
 
 export default function Home() {
   const [readArticles, setReadArticles] = useState([]);
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     (async function () {
       const readArticlesList = await getLast10DaysReadings();
       console.log(readArticlesList);
       setReadArticles(() => readArticlesList);
+      setLoading(false);
     })();
   }, []);
   return (
@@ -30,14 +32,24 @@ export default function Home() {
         <div className="mt-16 sm:mt-20">
           <div className="md:border-l md:border-zinc-100 md:pl-6 md:dark:border-zinc-700/40">
             <div className="flex max-w-3xl flex-col space-y-16">
-              {readArticles.map((eachArticle, index) => (
-                <Article
-                  key={`reading-article-${index}`}
-                  title={eachArticle.blog_title}
-                  created_date={eachArticle.created_time}
-                  url={eachArticle.blog_url}
-                />
-              ))}
+              {loading ? (
+                <div className="px-3 py-1 text-sm font-medium leading-none text-center text-zinc-800 rounded-full animate-pulse dark:text-zinc-100">
+                  Loading...
+                </div>
+              ) : readArticles.length == 0 ? (
+                <div className="px-3 py-1 text-sm font-medium leading-none text-center text-zinc-800 rounded-full dark:text-zinc-100">
+                  No Activity
+                </div>
+              ) : (
+                readArticles.map((eachArticle, index) => (
+                  <Article
+                    key={`reading-article-${index}`}
+                    title={eachArticle.blog_title}
+                    created_date={eachArticle.created_time}
+                    url={eachArticle.blog_url}
+                  />
+                ))
+              )}
             </div>
           </div>
         </div>
