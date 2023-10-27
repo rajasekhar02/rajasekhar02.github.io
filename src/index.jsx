@@ -15,6 +15,7 @@ import NoMatch from "./routes/NoMatch";
 import { AboutMeProvider } from "./routes/AboutMe/AboutMeContext";
 import Readings from "./routes/Readings";
 import ReadingsHome from "./routes/Readings/Home";
+import Main from "./routes/Main";
 
 const rootElement = document.getElementById("root");
 const root = createRoot(rootElement);
@@ -31,7 +32,7 @@ const router = createBrowserRouter(
         { name: "Uses", path: "/uses" }
       ]}
     >
-      <Route index element={<AboutMe />}></Route>
+      <Route index element={<Main />}></Route>
       <Route path="about" element={<AboutMe />}>
         <Route path=":string_slug" element={<AboutMe />} />
       </Route>

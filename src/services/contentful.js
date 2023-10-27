@@ -32,6 +32,12 @@ query UserDetails($user_id:String!){
         houseAddress,
         phoneNumber
     }
+    professionalSummary{
+      json
+    }
+    longIntro{
+      json
+    }
   }
 }
 `;
