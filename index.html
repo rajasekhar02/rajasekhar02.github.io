@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html class="h-full">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Raja Sekhar Pothina - Software Developer</title>
+  <meta name="description" content="I’m Raja, a software developer">
+  <script>
+    if (
+      localStorage.theme === "dark" ||
+      (!("theme" in localStorage) &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches)
+    ) {
+      document.documentElement.classList.add("dark");
+      localStorage.theme = 'dark'
+    } else {
+      document.documentElement.classList.remove("dark");
+      localStorage.theme = 'light'
+    }
+  </script>
+</head>
+<style>
+  .lds-hourglass {
+    display: inline-block;
+    position: relative;
+    position: absolute;
+    top: 40%;
+    left: 49%;
+  }
+
+  .lds-hourglass:after {
+    content: ' ';
+    display: block;
+    border-radius: 50%;
+    width: 0;
+    height: 0;
+    margin: 8px;
+    box-sizing: border-box;
+    border: 32px solid #274260;
+    border-color: #274260 transparent #274260 transparent;
+    animation: lds-hourglass 1.2s infinite;
+  }
+
+  @keyframes lds-hourglass {
+    0% {
+      transform: rotate(0);
+      animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    }
+
+    50% {
+      transform: rotate(900deg);
+      animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+
+    100% {
+      transform: rotate(1800deg);
+    }
+  }
+</style>
+
+<body class="flex h-full bg-zinc-50 dark:bg-black">
+  <div id="root" class="flex w-full">
+    <div class="lds-hourglass"></div>
+  </div>
+  <script type="module" src="src/index.jsx"></script>
+</body>
+
+</html>
