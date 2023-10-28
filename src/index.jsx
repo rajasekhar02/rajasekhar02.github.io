@@ -16,6 +16,7 @@ import { AboutMeProvider } from "./routes/AboutMe/AboutMeContext";
 import Readings from "./routes/Readings";
 import ReadingsHome from "./routes/Readings/Home";
 import Main from "./routes/Main";
+import Uses from "./routes/Uses";
 
 const rootElement = document.getElementById("root");
 const root = createRoot(rootElement);
@@ -28,8 +29,8 @@ const router = createBrowserRouter(
       loader={() => [
         { name: "About", path: "/about" },
         { name: "Readings", path: "/readings" },
-        { name: "Projects", path: "/projects" },
-        { name: "Uses", path: "/uses" }
+        { name: "Projects", path: "/projects" }
+        // { name: "Uses", path: "/uses" }
       ]}
     >
       <Route index element={<Main />}></Route>
@@ -39,7 +40,7 @@ const router = createBrowserRouter(
       <Route path="readings" element={<Readings></Readings>}>
         <Route index element={<ReadingsHome />}></Route>
       </Route>
-      <Route path="uses" element={<NoMatch></NoMatch>}></Route>
+      {/* <Route path="uses" element={<Uses />}></Route> */}
       <Route path="projects" element={<Projects />}>
         <Route index element={<ProjectsHome />}></Route>
       </Route>

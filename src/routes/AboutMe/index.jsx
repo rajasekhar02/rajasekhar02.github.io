@@ -28,7 +28,7 @@ export default function AboutMe() {
           <div className="relative px-4 sm:px-8 lg:px-12">
             <div className="mx-auto max-w-2xl lg:max-w-5xl">
               <div className="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12">
-                <div className="lg:pl-20">
+                {/* <div className="lg:pl-20">
                   <div className="max-w-xs px-2.5 lg:max-w-none">
                     <img
                       alt=""
@@ -42,7 +42,7 @@ export default function AboutMe() {
                       style={{ color: "transparent" }}
                     />
                   </div>
-                </div>
+                </div> */}
                 <div className="lg:order-first lg:row-span-2">
                   <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
                     I'm Raja Sekhar Pothina, a software developer
@@ -54,7 +54,7 @@ export default function AboutMe() {
                     )}
                   </div>
                 </div>
-                <div className="lg:pl-20">
+                {/* <div className="lg:pl-20">
                   <ul role="list">
                     <li className="flex">
                       <a
@@ -121,7 +121,7 @@ export default function AboutMe() {
                         <span className="ml-4">Follow on LinkedIn</span>
                       </a>
                     </li>
-                    {/* <li className="mt-8 border-t border-zinc-100 pt-8 dark:border-zinc-700/40 flex">
+                    <li className="mt-8 border-t border-zinc-100 pt-8 dark:border-zinc-700/40 flex">
                       <a
                         className="group flex text-sm font-medium text-zinc-800 transition hover:text-teal-500 dark:text-zinc-200 dark:hover:text-teal-500"
                         href="mailto:spencer@planetaria.tech"
@@ -132,15 +132,15 @@ export default function AboutMe() {
                           className="h-6 w-6 flex-none fill-zinc-500 transition group-hover:fill-teal-500"
                         >
                           <path
-                            fill-rule="evenodd"
+                            fillRule="evenodd"
                             d="M6 5a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3H6Zm.245 2.187a.75.75 0 0 0-.99 1.126l6.25 5.5a.75.75 0 0 0 .99 0l6.25-5.5a.75.75 0 0 0-.99-1.126L12 12.251 6.245 7.187Z"
                           ></path>
                         </svg>
                         <span className="ml-4">spencer@planetaria.tech</span>
                       </a>
-                    </li> */}
+                    </li>
                   </ul>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
