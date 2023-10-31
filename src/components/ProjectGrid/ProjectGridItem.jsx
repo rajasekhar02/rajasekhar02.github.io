@@ -53,7 +53,7 @@ export default function ProjectGridItem({ details }) {
           {details.liveDemoLink && (
             <div className="flex -ml-px w-0 flex-1">
               <a
-                href="tel:+1-202-555-0170"
+                href={details.liveDemoLink}
                 className="relative inline-flex w-0 flex-1 items-center justify-center gap-x-3 rounded-br-lg border border-transparent pt-4 pb-4 text-sm font-medium text-gray-900 dark:text-slate-200"
               >
                 Live Demo
